@@ -637,149 +637,227 @@
         }
         .back-to-top.show { opacity: 1; visibility: visible; }
 
-        /* ===== WIDGET TRỢ LÝ AI ===== */
+        /* ===== WIDGET TRỢ LÝ AI (thiết kế mới – to, rõ, đồng bộ tông xanh + cam) ===== */
         .ai-fab {
             position: fixed;
             right: 18px;
             bottom: 140px;
-            width: 56px;
-            height: 56px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             border: none;
-            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
             color: #fff;
-            font-size: 1.35em;
+            font-size: 1.6em;
             cursor: pointer;
-            box-shadow: 0 10px 24px rgba(124, 58, 237, .45);
-            transition: transform .2s ease;
+            box-shadow: 0 10px 26px rgba(37, 99, 235, .45);
+            transition: transform .25s ease, box-shadow .25s ease;
             z-index: 999;
         }
-        .ai-fab:hover { transform: scale(1.08); }
+        .ai-fab:hover { transform: scale(1.08) rotate(-6deg); box-shadow: 0 14px 32px rgba(37, 99, 235, .55); }
+        .ai-fab::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(37, 99, 235, .45);
+            animation: aiPulse 2.2s ease-out infinite;
+        }
+        @keyframes aiPulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.55); opacity: 0; }
+        }
         .ai-fab .ai-dot {
             position: absolute;
-            top: 2px;
-            right: 2px;
-            width: 14px;
-            height: 14px;
+            top: 3px;
+            right: 3px;
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            background: var(--green);
-            border: 2px solid #fff;
+            background: var(--amber);
+            border: 2.5px solid #fff;
         }
         .ai-panel {
             position: fixed;
             right: 18px;
-            bottom: 206px;
-            width: min(370px, calc(100vw - 24px));
-            height: min(540px, calc(100dvh - 240px));
+            bottom: 216px;
+            width: min(440px, calc(100vw - 24px));
+            height: min(680px, calc(100dvh - 230px));
             background: #fff;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 24px;
+            border: 1px solid var(--line);
+            box-shadow: 0 30px 70px rgba(15, 23, 42, .28);
             display: none;
             flex-direction: column;
             overflow: hidden;
             z-index: 1001;
+            transform-origin: bottom right;
         }
-        .ai-panel.open { display: flex; }
+        .ai-panel.open { display: flex; animation: aiPanelIn .32s cubic-bezier(.2, .9, .3, 1.15); }
+        @keyframes aiPanelIn {
+            from { opacity: 0; transform: scale(.85) translateY(16px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
         .ai-head {
-            background: linear-gradient(135deg, #7c3aed, #4c1d95);
+            position: relative;
+            background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 55%, var(--blue) 100%);
             color: #fff;
-            padding: 14px 16px;
+            padding: 18px;
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 13px;
+            overflow: hidden;
+        }
+        .ai-head::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+        }
+        .ai-head::before {
+            content: '';
+            position: absolute;
+            right: 40px;
+            bottom: -46px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, .18);
         }
         .ai-head .ai-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, .16);
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, var(--amber), var(--amber-dark));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1em;
+            font-size: 1.4em;
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .4);
+            position: relative;
+            z-index: 1;
         }
-        .ai-head b { display: block; font-size: .95em; }
-        .ai-head span { font-size: .74em; opacity: .85; display: flex; align-items: center; gap: 5px; }
-        .ai-head span i { color: #6ee7b7; font-size: .7em; }
+        .ai-head .ai-title { position: relative; z-index: 1; }
+        .ai-head b { display: block; font-size: 1.05em; font-weight: 800; letter-spacing: .2px; }
+        .ai-head span { font-size: .78em; display: flex; align-items: center; gap: 6px; color: #bbf7d0; }
+        .ai-head span i { color: #4ade80; font-size: .7em; animation: aiStatus 2s infinite; }
+        @keyframes aiStatus { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
         .ai-close {
             margin-left: auto;
-            background: rgba(255, 255, 255, .15);
+            background: rgba(255, 255, 255, .12);
             border: none;
             color: #fff;
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
             cursor: pointer;
-            font-size: .9em;
+            font-size: 1em;
+            position: relative;
+            z-index: 1;
+            transition: background .2s ease;
         }
+        .ai-close:hover { background: rgba(255, 255, 255, .25); }
         .ai-msgs {
             flex: 1;
             overflow-y: auto;
-            padding: 16px 14px 8px;
+            padding: 20px 16px 12px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            background: var(--bg);
+            gap: 14px;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(37, 99, 235, .05) 0, transparent 42%),
+                radial-gradient(circle at 85% 75%, rgba(245, 158, 11, .06) 0, transparent 42%),
+                var(--bg);
         }
-        .msg { max-width: 84%; padding: 10px 14px; border-radius: 16px; font-size: .87em; line-height: 1.55; white-space: pre-line; }
-        .msg.bot { background: #fff; border: 1px solid var(--line); border-bottom-left-radius: 6px; align-self: flex-start; box-shadow: var(--shadow-sm); }
-        .msg.user { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); color: #fff; border-bottom-right-radius: 6px; align-self: flex-end; }
-        .msg.typing { display: flex; gap: 5px; align-items: center; padding: 14px 16px; }
-        .msg.typing span { width: 7px; height: 7px; border-radius: 50%; background: #94a3b8; animation: aiBlink 1.2s infinite; }
-        .msg.typing span:nth-child(2) { animation-delay: .2s; }
-        .msg.typing span:nth-child(3) { animation-delay: .4s; }
-        @keyframes aiBlink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
-        .ai-quick {
+        .row { display: flex; gap: 9px; align-items: flex-end; animation: aiMsgIn .28s ease; }
+        @keyframes aiMsgIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .row.user { justify-content: flex-end; }
+        .row .ai-avatar-sm {
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: #fff;
+            font-size: .85em;
             display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-            padding: 10px 14px;
-            background: var(--bg);
-            border-top: 1px solid var(--line);
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-bottom: 2px;
         }
-        .ai-quick button {
+        .bubble {
+            max-width: 84%;
+            padding: 12px 16px;
+            font-size: .95em;
+            line-height: 1.55;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+        .row.bot .bubble {
             background: #fff;
             border: 1px solid var(--line);
-            color: #334155;
-            font-size: .76em;
-            font-weight: 600;
-            padding: 7px 12px;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all .2s ease;
-            font-family: inherit;
+            border-radius: 4px 18px 18px 18px;
+            box-shadow: var(--shadow-sm);
+            color: var(--ink);
         }
-        .ai-quick button:hover { border-color: var(--blue); color: var(--blue); background: #eff6ff; }
+        .row.user .bubble {
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: #fff;
+            border-radius: 18px 4px 18px 18px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, .25);
+        }
+        .bubble.typing { display: flex; gap: 6px; align-items: center; padding: 16px 18px; }
+        .bubble.typing span { width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; animation: aiBlink 1.2s infinite; }
+        .bubble.typing span:nth-child(2) { animation-delay: .2s; }
+        .bubble.typing span:nth-child(3) { animation-delay: .4s; }
+        @keyframes aiBlink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
         .ai-input {
             display: flex;
-            gap: 8px;
-            padding: 10px;
+            gap: 9px;
+            padding: 12px 14px;
             background: #fff;
             border-top: 1px solid var(--line);
+            align-items: center;
         }
         .ai-input input {
             flex: 1;
-            border: 1px solid var(--line);
-            border-radius: 12px;
-            padding: 11px 14px;
-            font-size: .88em;
+            min-width: 0;
+            border: 1.5px solid var(--line);
+            border-radius: 999px;
+            padding: 13px 20px;
+            font-size: .95em;
             font-family: inherit;
             outline: none;
             background: var(--bg);
+            transition: border .2s ease, background .2s ease, box-shadow .2s ease;
         }
-        .ai-input input:focus { border-color: var(--blue); background: #fff; }
+        .ai-input input:focus { border-color: var(--blue); background: #fff; box-shadow: 0 0 0 3px rgba(37, 99, 235, .12); }
         .ai-input button {
-            width: 44px;
+            width: 48px;
+            height: 48px;
             border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--amber), var(--amber-dark));
             color: #fff;
-            font-size: 1em;
+            font-size: 1.1em;
             cursor: pointer;
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, .35);
+            transition: transform .2s ease;
         }
-        .ai-foot { text-align: center; font-size: .68em; color: #94a3b8; padding: 0 0 8px; background: var(--bg); }
+        .ai-input button:hover { transform: scale(1.08); }
+        .ai-foot { text-align: center; font-size: .7em; color: #94a3b8; padding: 0 0 10px; background: #fff; }
 
         /* Form + nút gọi video gặp chủ xe */
         .ai-call-form { display: flex; gap: 6px; margin-top: 8px; }
@@ -827,8 +905,8 @@
         .ai-call-btn:hover { transform: translateY(-1px); }
 
         @media (max-width: 480px) {
-            .ai-fab { bottom: 132px; }
-            .ai-panel { right: 12px; bottom: 196px; height: min(520px, calc(100dvh - 220px)); }
+            .ai-fab { bottom: 132px; width: 60px; height: 60px; font-size: 1.5em; }
+            .ai-panel { right: 8px; bottom: 204px; width: calc(100vw - 16px); height: min(620px, calc(100dvh - 224px)); }
         }
 
         /* ===== ANIMATIONS ===== */
@@ -1362,14 +1440,13 @@
     <div class="ai-panel" id="aiPanel" role="dialog" aria-label="Trợ lý AI">
         <div class="ai-head">
             <span class="ai-avatar"><i class="fas fa-robot"></i></span>
-            <div>
+            <div class="ai-title">
                 <b>Trợ Lý Xe 24/7</b>
-                <span><i class="fas fa-circle"></i> Trả lời ngay – Gọi 0911099712 nếu cần</span>
+                <span><i class="fas fa-circle"></i> Đang hoạt động – trả lời trong 1 phút</span>
             </div>
             <button class="ai-close" id="aiClose" aria-label="Đóng chat"><i class="fas fa-times"></i></button>
         </div>
         <div class="ai-msgs" id="aiMsgs"></div>
-        <div class="ai-quick" id="aiQuick"></div>
         <div class="ai-input">
             <input type="text" id="aiInput" placeholder="Nhập câu hỏi của bạn..." autocomplete="off">
             <button id="aiSend" aria-label="Gửi"><i class="fas fa-paper-plane"></i></button>
@@ -1523,7 +1600,7 @@
                 doc.body.classList.remove('edit-mode');
                 doc.querySelectorAll('.reveal').forEach(el => { el.classList.remove('visible'); el.removeAttribute('style'); });
                 doc.querySelectorAll('.msg, .ai-call-btn').forEach(el => el.remove());
-                doc.querySelectorAll('#aiMsgs, #aiQuick').forEach(el => { el.innerHTML = ''; });
+                doc.querySelectorAll('#aiMsgs').forEach(el => { el.innerHTML = ''; });
                 doc.getElementById('aiPanel')?.classList.remove('open');
                 const fab = doc.getElementById('aiFab');
                 if (fab) fab.removeAttribute('style');
@@ -1548,59 +1625,51 @@
         const aiPanel = document.getElementById('aiPanel');
         const aiFab = document.getElementById('aiFab');
         const aiMsgs = document.getElementById('aiMsgs');
-        const aiQuick = document.getElementById('aiQuick');
         const aiInput = document.getElementById('aiInput');
         const aiSend = document.getElementById('aiSend');
         const aiClose = document.getElementById('aiClose');
         let aiHistory = [];
 
+        function aiAvatar() {
+            const av = document.createElement('div');
+            av.className = 'ai-avatar-sm';
+            av.innerHTML = '<i class="fas fa-robot"></i>';
+            return av;
+        }
         function aiAddMsg(text, who) {
-            const d = document.createElement('div');
-            d.className = 'msg ' + who;
-            d.textContent = text;
-            aiMsgs.appendChild(d);
+            const row = document.createElement('div');
+            row.className = 'row ' + who;
+            if (who === 'bot') row.appendChild(aiAvatar());
+            const b = document.createElement('div');
+            b.className = 'bubble';
+            b.textContent = text;
+            row.appendChild(b);
+            aiMsgs.appendChild(row);
             aiMsgs.scrollTop = aiMsgs.scrollHeight;
-            return d;
+            return row;
         }
         function aiShowTyping() {
-            const d = document.createElement('div');
-            d.className = 'msg bot typing';
-            d.innerHTML = '<span></span><span></span><span></span>';
-            aiMsgs.appendChild(d);
+            const row = document.createElement('div');
+            row.className = 'row bot';
+            row.appendChild(aiAvatar());
+            const b = document.createElement('div');
+            b.className = 'bubble typing';
+            b.innerHTML = '<span></span><span></span><span></span>';
+            row.appendChild(b);
+            aiMsgs.appendChild(row);
             aiMsgs.scrollTop = aiMsgs.scrollHeight;
-            return d;
+            return row;
         }
         function aiToggle(open) {
             const isOpen = open === undefined ? !aiPanel.classList.contains('open') : open;
             aiPanel.classList.toggle('open', isOpen);
             if (isOpen) {
                 aiFab.style.display = 'none';
-                if (!aiMsgs.children.length) {
-                    aiAddMsg(FAQ_DATA.default, 'bot');
-                    aiRenderQuick();
-                }
+                if (!aiMsgs.children.length) aiAddMsg(FAQ_DATA.default, 'bot');
                 setTimeout(() => aiInput.focus(), 200);
             } else {
                 aiFab.style.display = '';
             }
-        }
-        function aiRenderQuick() {
-            const items = [
-                ['💰 Giá Nha Trang ⇄ Đà Lạt', 'Giá xe Nha Trang đi Đà Lạt'],
-                ['🚀 Sân bay Cam Ranh về Nha Trang', 'Giá xe Nha Trang đi sân bay'],
-                ['📞 Đặt xe như thế nào?', 'Đặt xe như thế nào?'],
-                ['🚐 Có những loại xe nào?', 'Có những loại xe nào?'],
-                ['⏰ Có phục vụ ban đêm không?', 'Thời gian phục vụ'],
-                ['📹 Gặp chủ xe qua video', 'Tôi muốn gặp chủ xe qua video'],
-                ['📱 Liên hệ', 'Thông tin liên hệ']
-            ];
-            aiQuick.innerHTML = '';
-            items.forEach(([label, q]) => {
-                const b = document.createElement('button');
-                b.textContent = label;
-                b.onclick = () => aiAsk(q);
-                aiQuick.appendChild(b);
-            });
         }
         function normalize(text) {
             return text.toLowerCase()
@@ -1614,18 +1683,22 @@
         }
         function localAnswer(text) {
             const q = normalize(text);
-            if (/(gia|bao nhieu|chi phi|bang gia|price)/.test(q)) {
-                if (/(san bay|cam ranh|airport)/.test(q) && /(nha trang|nt)/.test(q)) return FAQ_DATA.price('nha trang san bay');
-                if (/(san bay|cam ranh)/.test(q) && /(da lat|dl)/.test(q)) return FAQ_DATA.price('cam ranh da lat');
-                if (/(mui ne)/.test(q)) return FAQ_DATA.price('mui ne da lat');
-                if (/(sai gon|sg)/.test(q) && /(da lat|dl)/.test(q)) return FAQ_DATA.price('sai gon da lat');
-                if (/(sai gon|sg)/.test(q) && /(nha trang|nt)/.test(q)) return FAQ_DATA.price('sai gon nha trang');
+            const khuHoi = /(khu hoi|2 chieu|hai chieu|di ve|ve va di)/.test(q);
+            const kq = '\n\n🔁 Khứ hồi = 2 × giá chiều đi — gọi ' + SITE_CONFIG.hotline + ' để nhận giá ưu đãi khứ hồi!';
+            // Giá / chi phí ("gia" phải đứng riêng — tránh bắt nhầm "giam doc")
+            if (khuHoi || /(^|\s)(gia|tien)(\s|$)|bao nhieu|chi phi|bang gia|price/.test(q)) {
+                if (/(san bay|cam ranh|airport)/.test(q) && /(da lat|dl)/.test(q)) return FAQ_DATA.price('cam ranh da lat') + (khuHoi ? kq : '');
+                if (/(san bay|cam ranh|airport)/.test(q)) return FAQ_DATA.price('nha trang san bay') + (khuHoi ? kq : '');
+                if (/(mui ne)/.test(q)) return FAQ_DATA.price('mui ne da lat') + (khuHoi ? kq : '');
+                if (/(sai gon|sg)/.test(q)) {
+                    return '🚗 Tuyến Sài Gòn:\n• SG ⇄ Đà Lạt: 5 chỗ 2.700k | 7 chỗ 3.000k | 16 chỗ 5.000k\n• SG ⇄ Nha Trang: 5 chỗ 2.700k | 7 chỗ 3.000k | 16 chỗ 5.000k' + (khuHoi ? kq : '') + '\n\n📞 Gọi ' + SITE_CONFIG.hotline + ' để giữ xe!';
+                }
                 if (/(san may|tour may)/.test(q)) return FAQ_DATA.price('san may');
                 if (/(thue theo ngay|thue 1 ngay|trong ngay|thue ngay|mot ngay)/.test(q)) return FAQ_DATA.price('thue xe trong ngay');
-                if (/(nha trang|nt)/.test(q) && /(da lat|dl)/.test(q)) return FAQ_DATA.price('nha trang da lat');
-                return FAQ_DATA.price('nha trang da lat');
+                if (/(nha trang|nt)/.test(q) && /(da lat|dl)/.test(q)) return FAQ_DATA.price('nha trang da lat') + (khuHoi ? kq : '');
+                return 'Bạn muốn giá tuyến nào ạ? Ví dụ: "giá Nha Trang Đà Lạt", "giá sân bay", "giá Sài Gòn"… 🚗';
             }
-            if (/(dat xe|book|giu xe|dang ky|dat xe|dat lich)/.test(q)) return FAQ_DATA.booking;
+            if (/(dat xe|book|giu xe|dang ky|dat lich)/.test(q)) return FAQ_DATA.booking;
             if (/(lien he|hotline|so dien thoai|sdt|zalo|email)/.test(q)) return FAQ_DATA.contact;
             if (/(loai xe|xe nao|dong xe|co nhung loai xe nao)/.test(q)) return FAQ_DATA.car;
             if (/(thoi gian|gio|dem|24|bao lau|bao gio|phuc vu)/.test(q)) return FAQ_DATA.time;
@@ -1633,10 +1706,13 @@
         }
 
         // ===== GỌI VIDEO GẶP CHỦ XE =====
-        const VIDEO_KEYWORDS = /(gap chu xe|goi video|video call|gap rieng|xac nhan truc tiep|noi chuyen truc tiep|gap ban quan ly|chu xe|hoi cau kho|hien truong|xem xe)/;
+        const VIDEO_KEYWORDS = /(gap chu xe|goi video|video call|gap rieng|xac nhan truc tiep|noi chuyen truc tiep|gap ban quan ly|chu xe|hoi cau kho|hien truong|xem xe|giam doc|quan ly|chu dau tu|gap ong chu|gap ba chu|gap anh chu|gap chi chu|gap nguoi phu trach)/;
         function aiVideoForm() {
+            const row = document.createElement('div');
+            row.className = 'row bot';
+            row.appendChild(aiAvatar());
             const wrap = document.createElement('div');
-            wrap.className = 'msg bot';
+            wrap.className = 'bubble';
             wrap.innerHTML =
                 '📹 OK, mình kết nối bạn với chủ xe qua video (miễn phí)!\n' +
                 'Bạn nhập số điện thoại rồi bấm "Gặp ngay" nhé:';
@@ -1655,7 +1731,8 @@
             hint.className = 'ai-call-hint';
             hint.textContent = 'Chủ xe nhận thông báo ngay và vào phòng gặp bạn trong ~1 phút.';
             wrap.appendChild(hint);
-            aiMsgs.appendChild(wrap);
+            row.appendChild(wrap);
+            aiMsgs.appendChild(row);
             aiMsgs.scrollTop = aiMsgs.scrollHeight;
             btn.onclick = async () => {
                 const phone = input.value.trim();
@@ -1673,14 +1750,21 @@
                     });
                     const data = await res.json();
                     if (!res.ok || !data.roomUrl) throw new Error(data.error || 'Lỗi kết nối');
-                    aiAddMsg('✅ ' + (data.message || 'Đã tạo phòng.') + '\nNếu chủ xe chưa vào, bạn bấm nút dưới đây để vào phòng trước:', 'bot');
+                    const row2 = document.createElement('div');
+                    row2.className = 'row bot';
+                    row2.appendChild(aiAvatar());
+                    const bub2 = document.createElement('div');
+                    bub2.className = 'bubble';
+                    bub2.textContent = '✅ ' + (data.message || 'Đã tạo phòng.') + '\nNếu chủ xe chưa vào, bạn bấm nút dưới đây để vào phòng trước:';
                     const a = document.createElement('a');
                     a.href = data.roomUrl;
                     a.target = '_blank';
                     a.rel = 'noopener';
                     a.className = 'ai-call-btn';
                     a.innerHTML = '<i class="fas fa-video"></i> Vào phòng video ngay';
-                    aiMsgs.appendChild(a);
+                    bub2.appendChild(a);
+                    row2.appendChild(bub2);
+                    aiMsgs.appendChild(row2);
                     aiMsgs.scrollTop = aiMsgs.scrollHeight;
                 } catch (e) {
                     btn.disabled = false;
@@ -1729,5 +1813,14 @@
         aiClose.onclick = () => aiToggle(false);
         aiFab.onclick = () => aiToggle();
     </script>
+
+    <!-- ◈◈◈ CHAT NGƯỜI THẬT tawk.to (MIỄN PHÍ) ◈◈◈
+         Cách bật: 1) Đăng ký free tại tawk.to → tạo Property cho xedalatnhatrang.click
+                   2) Admin → Chat Widget → lấy dòng code <script> của bạn
+                   3) Dán NGUYÊN dòng code đó vào giữa hai dòng "BẮT ĐẦU / KẾT THÚC" dưới đây
+                   → khách nhắn sẽ đổ về app tawk.to trên điện thoại, bạn trả lời trực tiếp.
+         (Chưa dán code = ẩn hoàn toàn, không ảnh hưởng web) -->
+    <!-- BẮT ĐẦU tawk.to -->
+    <!-- KẾT THÚC tawk.to -->
 </body>
 </html>
