@@ -2,9 +2,10 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>THUÊ XE ĐÀ LẠT NHA TRANG</title>
-    <meta name="description" content="LIÊN HỆ: 0889999415">
+    <meta name="description" content="LIÊN HỆ: 0911099712 - 0877 019 712">
+    <meta name="theme-color" content="#1a73e8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -14,58 +15,80 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
+            background: #f5f5f5;
         }
-        /* Header */
+        /* ===== HEADER ===== */
         .header {
             background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
             color: white;
-            padding: 15px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
         .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
         }
         .logo {
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .header-phone {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2em;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        .header-phone .main {
+            font-size: 1em;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .header-phone .secondary {
+            font-size: 0.75em;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         .header-phone i {
-            font-size: 1.4em;
+            font-size: 1.1em;
         }
-        /* Navigation */
+        /* ===== NAVIGATION ===== */
         .nav {
             background: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 56px;
+            z-index: 900;
         }
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
+        /* Desktop nav */
         .nav-list {
             display: flex;
             list-style: none;
@@ -77,119 +100,187 @@
         }
         .nav-list a {
             display: block;
-            block;
-            padding: 15px 25px;
+            padding: 14px 20px;
             color: #333;
             text-decoration: none;
             font-weight: 500;
             text-transform: uppercase;
-            font-size: 0.95em;
+            font-size: 0.88em;
             transition: all 0.3s ease;
             border-bottom: 3px solid transparent;
+            white-space: nowrap;
         }
         .nav-list a:hover {
             color: #1a73e8;
             border-bottom-color: #1a73e8;
+            background: #f0f7ff;
         }
-        /* Hero Section */
+        /* Mobile hamburger */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 8px;
+            cursor: pointer;
+        }
+        .nav-list.mobile {
+            display: none;
+            flex-direction: column;
+            background: white;
+            padding: 0;
+        }
+        .nav-list.mobile li {
+            border-bottom: 1px solid #eee;
+        }
+        .nav-list.mobile a {
+            padding: 16px 20px;
+            font-size: 1em;
+            border-bottom: none;
+            border-left: 3px solid transparent;
+        }
+        .nav-list.mobile a:hover {
+            border-left-color: #1a73e8;
+            background: #f0f7ff;
+        }
+        .nav-list.mobile.active {
+            display: flex;
+        }
+        /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(135deg, rgba(26,115,232,0.9) 0%, rgba(13,71,161,0.9) 100%), url('https://picsum.photos/seed/carhero/1920/800.jpg');
+            background: linear-gradient(135deg, rgba(26,115,232,0.92) 0%, rgba(13,71,161,0.92) 10) 100%), url('https://picsum.photos/seed/carhero/1920/800.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 120px 20px 80px;
+            padding: 60px 16px 40px;
+            position: relative;
         }
         .hero h1 {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
         .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            opacity: 0.95;
+        }
+        .hero-sub {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            opacity: 0.85;
+        }
+        .hero-phones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
         }
         .hero-phone {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: #ff9800;
             color: white;
-            padding: 15px 40px;
+            padding: 14px 32px;
             border-radius: 50px;
-            font-size: 1.4em;
+            font-size: 1.15em;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
-            animation: pulse 2s infinite;
+            min-width: 200px;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(255,152,0,0.4);
         }
-        .hero-phone:hover {
-            background: #e68900;
-            transform: scale(1.05);
+        .hero-phone:active {
+            transform: scale(0.96);
         }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(255, 152, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 152, 0, 0); }
+        .hero-phone-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.4);
+            min-width: 200px;
+            justify-content: center;
+            backdrop-filter: blur(5px);
         }
-        /* Section Styles */
+        .hero-phone-secondary:active {
+            transform: scale(0.96);
+            background: rgba(255,255,255,0.3);
+        }
+        /* ===== SECTION STYLES ===== */
         .section {
-            padding: 60px 20px;
+            padding: 40px 16px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .section-title {
             text-align: center;
-            font-size: 2.2em;
+            font-size: 1.6em;
             font-weight: 700;
             color: #1a73e8;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             text-transform: uppercase;
             position: relative;
+            letter-spacing: 0.5px;
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 3px;
             background: #ff9800;
-            margin: 15px auto 0;
+            margin: 10px auto 0;
             border-radius: 2px;
         }
-        /* Price Cards */
+        /* ===== PRICE CARDS ===== */
         .price-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 20px;
         }
         .price-card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             border-top: 4px solid #1a73e8;
         }
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        .price-card:active {
+            transform: scale(0.98);
         }
         .price-card h3 {
             color: #1a73e8;
-            font-size: 1.3em;
-            margin-bottom: 20px;
+            font-size: 1.1em;
+            margin-bottom: 16px;
             text-transform: uppercase;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .price-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
         .price-item:last-child {
             border-bottom: none;
@@ -197,126 +288,134 @@
         .price-item span:first-child {
             color: #555;
             font-weight: 500;
+            font-size: 0.95em;
         }
         .price-item span:last-child {
             color: #ff9800;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
         }
-        /* Vehicle Types */
+        /* ===== VEHICLE TYPES ===== */
         .vehicle-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 16px;
         }
         .vehicle-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
         }
-        .vehicle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        .vehicle-card:active {
+            transform: scale(0. scale(0.97);
         }
         .vehicle-img {
             width: 100%;
-            height: 200px;
+            height: 110px;
             object-fit: cover;
         }
         .vehicle-info {
-            padding: 20px;
+            padding: 12px;
             text-align: center;
         }
         .vehicle-info h4 {
             color: #1a73e8;
-            font-size: 1.1em;
-            margin-bottom: 10px;
+            font-size: 0.9em;
+            margin-bottom: 4px;
             font-weight: 700;
         }
         .vehicle-info p {
-            color: #666;
-            font-size: 0.95em;
+            color: #888;
+            font-size: 0.8em;
         }
-        /* Service Cards */
+        /* ===== SERVICE CARDS ===== */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 16px;
         }
         .service-card {
             background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
-            color: white            color: white;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
             transition: all 0.3s ease;
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(26,115,232,0.3);
+        .service-card:active {
+            transform: scale(0.98);
+        }
+        .service-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
         }
         .service-card i {
-            font-size: 3em;
-            margin-bottom: 20px;
+            font-size: 2em;
         }
         .service-card h3 {
-            font-size: 1.2em;
-            margin-bottom: 15px;
+            font-size: 1.05em;
+            margin: 0;
             text-transform: uppercase;
         }
         .service-card .price-list {
-            text-align: left;
-            margin-top: 15px;
+            margin-top: 10px;
+            padding-left: 32px;
         }
         .service-card .price-list p {
-            padding: 5px 0;
-            font-size: 0.95em;
+            padding: 3px 0;
+            font-size: 0.88em;
+            line-height: 1.5;
         }
-        /* Testimonials */
+        /* ===== TESTIMONIALS ===== */
         .testimonials-bg {
-            background: #f8f9fa;
+            background: #f0f4f8;
         }
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 16px;
         }
         .testimonial-card {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             position: relative;
         }
         .testimonial-card::before {
             content: '"';
-            font-size: 4em;
+            font-size: 2.5em;
             color: #1a73e8;
             position: absolute;
-            top: 10px;
-            left: 20px;
-            opacity: 0.2;
+            top: 8px;
+            left: 12px;
+            opacity: 0.15;
             font-family: Georgia, serif;
+            line-height: 1;
         }
         .testimonial-text {
             color: #555;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            line-height: 1.7;
+            margin-bottom: 14px;
             font-style: italic;
+            font-size: 0.88em;
+            padding-top: 16px;
         }
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
         .author-avatar {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: linear-gradient(135deg, #1a73e8, #0d47a1);
             display: flex;
@@ -324,273 +423,544 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: 1em;
+            flex-shrink: 0;
         }
         .author-info h4 {
             color: #1a73e8;
-            font-size: 1em;
-            margin-bottom: 3px;
+            font-size: 0.9em;
+            margin-bottom: 2px;
         }
         .author-info span {
             color: #999;
-            font-size: 0.85em;
+            font-size: 0.78em;
         }
-        /* CTA Section */
+        /* ===== CTA SECTION ===== */
         .cta {
             background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 16px;
         }
         .cta h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 1.5em;
+            margin-bottom: 12px;
         }
         .cta p {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            max-width: 800px;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.95;.95;
+            line-height: 1.6;
+        }
+        .cta-phones {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
         .cta-phone {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: white;
             color: #ff9800;
-            padding: 15px 40px;
+            padding: 14px 32px;
             border-radius: 50px;
-            font-size: 1.3em;
+            font-size: 1.15em;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
+            min-width: 220px;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .cta-phone:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        .cta-phone:active {
+            transform: scale(0.96);
         }
-        /* Footer */
+        .cta-phone-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.4);
+            min-width: 220px;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        .cta-phone-secondary:active {
+            transform: scale(0.96);
+            background: rgba(255,255,255,0.25);
+        }
+        /* ===== FOOTER ===== */
         .footer {
             background: #1a1a1a;
-            color: #ccc;
-            padding: 60px 20px 30px;
+            color: #bbb;
+            padding: 32px 16px 20px;
         }
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 24px;
         }
         .footer-section h3 {
             color: white;
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1em;
+            margin-bottom: 12px;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .footer-section ul {
             list-style: none;
         }
         .footer-section ul li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .footer-section ul li a {
- li a {
-            color: #ccc;
+            color: #bbb;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-size: 0.9em;
+            display: block;
+            padding: 4px 0;
         }
         .footer-section ul li a:hover {
-            color: #1a73e8;
+            color: #ff9800;
         }
         .footer-contact p {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 0.9em;
+            line-height: 1.5;
         }
         .footer-contact i {
-            color: #1a73e8;
-            width: 20px;
+            color: #ff9800;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 16px;
             border-top: 1px solid #333;
-            color: #999;
-            font-size: 0.9em;
+            color: #777;
+            font-size: 0.8em;
+            line-height: 1.5;
         }
-        /* Floating Call Button */
-        .floating-call {
+        /* ===== FLOATING CALL BUTTONS ===== */
+        .floating-calls {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 12px;
+            right: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 999;
+        }
+        .floating-call {
             background: #25d366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
-            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
-            z-index: 999;
+            font-size: 1.4em;
+            box-shadow: 0 3px 12px rgba(37,211,102,0.4);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        .floating-call:active {
+            transform: scale(0.9);
+        }
+        .floating-call.secondary {
+            background: #1a73e8;
+            width: 48px;
+            height: 48px;
+            font-size: 1.2em;
+        }
+        .floating-call.secondary:hover {
+            box-shadow: 0 4px 15px rgba(26,115,232,0.5);
+        }
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
-            animation: bounce 2s infinite;
+            z-index: 998;
+            backdrop-filter: blur(5px);
         }
-        .floating-call:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
         }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
+        .back-to-top:active {
+            transform: scale(0.9);
         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
+        /* ===== DESKTOP STYLES ===== */
+        @media (min-width: 768px) {
+            .nav-toggle {
+                display: none !important;
             }
-            .hero-phone {
-                font-size: 1.1em;
-                padding: 12px 25px;
+            .nav-list.mobile {
+                display: none !important;
             }
-            .nav-list a {
-                padding: 12px 15px;
-                font-size: 0.85em;
+            .header {
+                padding: 16px 0;
             }
-            .section-title {
-                font-size: 1.6em;
+            .header-container {
+                padding: 0 20px;
             }
-            .floating-call {
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
+            .logo {
                 font-size: 1.5em;
             }
+            .header-phone .main {
+                font-size: 1.2em;
+            }
+            .header-phone .secondary {
+                font-size: 0.85em;
+            }
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            .hero h1 {
+                font-size: 3em;
+            }
+            .hero p {
+                font-size: 1.3em;
+            }
+            .hero-phones {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .section-title {
+                font-size: 2.2em;
+                margin-bottom: 40px;
+            }
+            .price-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 24px;
+            }
+            .price-card {
+                padding: 30px;
+                border-radius: 15px;
+            }
+            .price-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            }
+            .price-item span:first-child {
+                font-size: 1em;
+            }
+            .price-item span:last-child {
+                font-size: 1.1em;
+            }
+            .vehicle-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            .vehicle-img {
+                height: 160px;
+            }
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+            .service-card {
+                padding padding: 30px;
+                text-align: center;
+            }
+            .service-card-header {
+                justify-content: center;
+            }
+            .service-card i {
+                font-size: 3em;
+            }
+            .service-card .price-list {
+                padding-left: 0;
+                text-align: left;
+                display: inline-block;
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+            }
+            .testimonial-card {
+                padding: 30px;
+            }
+            .testimonial-text {
+                font-size: 0.95em;
+            }
+            .cta {
+                padding: 60px 20px;
+            }
+            .cta h2 {
+                font-size: 2em;
+            }
+            .cta-phones {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .footer {
+                padding: 60px 20px 30px;
+            }
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            .floating-calls {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+            .floating-call {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5em;
+            }
+            .floating-call.secondary {
+                width: 52px;
+                height: 52px;
+                font-size: 1.3em;
+            }
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+                width: 48px;
+                height: 48px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .vehicle-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            .hero h1 {
+                font-size: 3.2em;
+            }
+        }
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        /* ===== LOADING SPINNER ===== */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1a73e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
     <!-- Header -->
     <header class="header">
         <div class="header-container">
             <div class="logo">
-                <i class="fas fa-car"></i> Thuê Xe Đà Lạt Nha Trang
+                <i class="fas fa-car"></i> <span>Thuê Xe Đà Lạt</span>
             </div>
-            <div class="header-phone">
-                <i class="fas fa-phone-alt"></i>
-                <span>HOTLINE: 0889999415</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div class="header-phone">
+                    <div class="main">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>0911099712</span>
+                    </div>
+                    <div class="secondary">
+                        <i class="fas fa-phone-volume"></i>
+                        <span>0877 019 712</span>
+                    </div>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <ul class="nav-list">
+            <ul class="nav-list" id="navListDesktop">
                 <li><a href="#home"><i class="fas fa-home"></i> Trang Chủ</a></li>
                 <li><a href="#services"><i class="fas fa-concierge-bell"></i> Dịch Vụ</a></li>
-                <li><a href="#prices"><i class="fas fa-tags"></i> Tổng Đài</a></li>
-                <li><a href="#criteria"><i class="fas fa-star"></i> Tiêu Chí</a></li>
-                <li><a href="#gallery"><i class="fas fa-images"></i> Hình Ảnh</a></li>
+                <li><a href="#prices"><i class="fas fa-tags"></i> Giá Xe</a></li>
+                <li><a href="#criteria"><i class="fas fa-star"></i> Đánh Giá</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Hình Xe</a></li>
+            </ul>
+            <ul class="nav-list mobile" id="navListMobile">
+                <li><a href="#home" onclick="closeNav()"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="#services" onclick="closeNav()"><i class="fas fa-concierge-bell"></i> Dịch Vụ</a></li>
+                <li><a href="#prices" onclick="closeNav()"><i class="fas fa-tags"></i> Giá Xe</a></li>
+                <li><a href="#criteria" onclick="closeNav()"><i class="fas fa-star"></i> Đánh Giá</a></li>
+                <li><a href="#gallery" onclick="closeNav()"><i class="fas fa-images"></i> Hình Xe</a></li>
             </ul>
         </div>
     </nav>
     <!-- Hero Section -->
     <section class="hero" id="home">
+="home">
         <h1>Thuê Xe Nha Trang - Đà Lạt</h1>
         <p>Dịch vụ thuê xe chuyên tuyến uy tín - Giá tốt nhất khu vực</p>
-        <a href="tel:0889999415" class="hero-phone">
-            <i class="fas fa-phone-alt"></i> Gọi Ngay: 0889999415
-        </a>
+        <p class="hero-sub">📞 Line phụ: 0877 019 712</p>
+        <div class="hero-phones">
+            <a href="tel:0911099712" class="hero-phone">
+                <i class="fas fa-phone-alt"></i> Gọi 0911099712
+            </a>
+            <a href="tel:0877019712" class="hero-phone-secondary">
+                <i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712
+            </a>
+        </div>
     </section>
     <!-- Price Section -->
     <section class="section" id="prices">
         <h2 class="section-title">Bảng Giá Thuê Xe</h2>
         <div class="price-grid">
-            <!-- Xe Nha Trang - Đà Lạt -->
-            <div class="price-card">
-                <h3><i class="fas fa-route"></i> Xe Nha Trang - Đà Lạt</h3>
+            <!-- Nha Trang - Đà Lạt -->
+            <div class="price-card animate-in">
+                <h3><i class="fas fa-route"></i> Nha Trang ⇄ Đà Lạt</h3>
                 <div class="price-item">
                     <span>Xe taxi 5 chỗ</span>
-                    <span>1.000.000 VNĐ</span>
+                    <span>1.000.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe taxi 7 chỗ</span>
-                    <span>1.200.000 VNĐ</span>
-                </div>
-                <div class="price-item">
-                    <span>Xe du lịch 16 chỗ</span6 chỗ</span>
-                    <span>2.000.000 VNĐ</span>
-                </div>
-                <div class="price-item">
-                    <span>Xe limousine 9 chỗ</span>
-                    <span>2.200.000 VNĐ</span>
-                </div>
-                <div class="price-item">
-                    <span>Xe du lịch 29 chỗ</span>
-                    <span>4.000.000 VNĐ</span>
-                </div>
-            </div>
-            <!-- Xe Cam Ranh - Đà Lạt -->
-            <div class="price-card">
-                <h3><i class="fas fa-route"></i> Xe Cam Ranh - Đà Lạt</h3>
-                <div class="price-item">
-                    <span>Xe taxi 5 chỗ</span>
-                    <span>1.000.000 VNĐ</span>
-                </div>
-                <div class="price-item">
-                    <span>Xe taxi 7 chỗ</span>
-                    <span>1.200.000 VNĐ</span>
+                    <span>1.200.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe du lịch 16 chỗ</span>
-                    <span>2.200.000 VNĐ</span>
+                    <span>2.000.000₫</span>
                 </div>
                 <div class="price-item">
-                    <span>Xe limousine 9 chỗ</span>
-                    <span>2.400.000 VNĐ</span>
+                    <span>Limousine 9 chỗ</span>
+                    <span>2.200.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe du lịch 29 chỗ</span>
-                    <span>4.200.000 VNĐ</span>
+                    <span>4.000.000₫</span>
+                </div>
+            </div>
+            <!-- Cam Ranh - Đà Lạt -->
+            <div class="price-card animate-in">
+                <h3><i class="fas fa-route"></i> Cam Ranh ⇄ Đà Lạt</h3>
+                <div class="price-item">
+                    <span>Xe taxi 5 chỗ</span>
+                    <span>1.000.000₫</span>
+                </div>
+                <div class="price-item">
+                    <span>Xe taxi 7 chỗ</span>
+                    <span>1.200.000₫</span>
+                </div>
+                <div class="price-item">
+                    <span>Xe du lịch 16 chỗ</span>
+                    <span>2.200.000₫</span>
+                </div>
+                <div class="price-item">
+                    <span>Limousine 9 chỗ</span>
+                    <span>2.400.000₫</span>
+                </div>
+                <div class="price-item">
+                    <span>Xe du lịch 29 chỗ</span>
+                    <span>4.200.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe sang</span>
-                    <span>3.400.000 VNĐ</span>
+                    <span>3.400.000₫</span>
                 </div>
             </div>
-            <!-- Xe Nha Trang - Sân Bay -->
-            <div class="price-card">
-                <h3><i class="fas fa-plane"></i> Xe Nha Trang - Sân Bay</h3>
+            <!-- Nha Trang - Sân Bay -->
+            <div class="price-card animate-in">
+                <h3><i class="fas fa-plane"></i> Nha Trang ⇄ Sân Bay</h3>
                 <div class="price-item">
                     <span>Xe 5 chỗ</span>
-                    <span>300.000 VNĐ</span>
+                    <span>300.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe taxi 7 chỗ</span>
-                    <span>350.000 VNĐ</span>
+                    <span>350.000₫</span>
                 </div>
                 <div class="price-item">
-                    <span>Xe du lịch 16 chỗ</span>
-                    <span>600.000 VNĐ</span>
+                    <span>Xe du lịch 16 chỗ</span> chỗ</span>
+                    <span>600.000₫</span>
                 </div>
                 <div class="price-item">
-                    <span>Xe limousine 9 chỗ</span>
-                    <span>1.000.000 VNĐ</span>
+                    <span>Limousine 9 chỗ</span>
+                    <span>1.000.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe du lịch 29 chỗ</span>
-                    <span>1.400.000 VNĐ</span>
+                    <span>1.400.000₫</span>
                 </div>
                 <div class="price-item">
                     <span>Xe sang</span>
-                    <span>1.500.000 VNĐ</span>
+                    <span>1.500.000₫</span>
                 </div>
             </div>
         </div>
@@ -599,101 +969,113 @@
     <section class="section" id="gallery">
         <h2 class="section-title">Các Loại Xe</h2>
         <div class="vehicle-grid">
-            <div class="vehicle-card">
-                <img src="https://picsum.photos/seed/limousine/400/200.jpg" alt="Limousine" class="vehicle-img">
+            <div class="vehicle-card animate-in">
+                <img src="https://picsum.photos/seed/limousine/400/200.jpg" alt="Limousine" class="vehicle-img" loading="lazy">
                 <div class="vehicle-info">
                     <h4>Limousine</h4>
-                    <p>5 - 9 hành khách</p>
+                    <p>5-9 khách</p>
                 </div>
             </div>
-            <div class="vehicle-card">
-                <img src="https://picsum.photos/seed/massage/400/200.jpg" alt="Limousine Massage" class="vehicle-img">
+            <div class="vehicle-card animate-in">
+                <img src="https://picsum.photos/seed/massage/400/200.jpg" alt="Limousine Massage" class="vehicle-img" loading="lazy">
                 <div class="vehicle-info">
                     <h4>Limousine Massage</h4>
-                    <p>3 - 6 hành khách</p>
+                    <p>3-6 khách</p>
                 </div>
             </div>
-            <div class="vehicle-card">
-                <img src="https://picsum.photos/seed/transit/400/200.jpg" alt="Ford Transit" class="vehicle-img">
+            <div class="vehicle-card animate-in">
+                <img src="https://picsum.photos/seed/transit/400/200.jpg" alt="Ford Transit" class="vehicle-img" loading="lazy">
                 <div class="vehicle-info">
-                    <h4>Ford Transit - Solati</h4>
-                    <p>8 - 15 hành khách</p>
+                    <h4>Ford Transit</h4>
+                    <p>8-15 khách</p>
                 </div>
             </div>
-            <div class="vehicle-card">
-                <img src="https://picsum.photos/seed/carnival/400/200.jpg" alt="Carnival" class="vehicle-img">
+            <div class="vehicle-card animate-in">
+                <img src="https://picsum.photos/seed/carnival/400/200.jpg" alt="Carnival" class="vehicle-img" loading="lazy">
                 <div class="vehicle-info">
-                    <h4>Carnival - Sedona</h4>
-                    <p>4 - 7 hành khách</p>
+                    <h4>Carnival</h4>
+                    <p>4-7 khách</p>
                 </div>
             </div>
-            <div class="vehicle-card">
-                <img src="https://picsum.photos/seed/vios/400/200.jpg" alt="Vios" class="vehicle-img">
+            <div class="vehicle-card animate-in">
+                <img src="https://picsum.photos/seed/vios/400/200.jpg" alt="Vios" class="vehicle-img" loading="lazy">
                 <div class="vehicle-info">
-                    <h4>Vios, Accent, Mazda</h4>
-                    <p>1 - 3 hành khách</p>
+                    <h4>Vios / Accent</h4>
+                    <p>1-3 khách</p>
                 </div>
             </div>
         </div>
     </section>
     <!-- Services Section -->
     <section class="section" id="services">
-        <h2 class="section-title">Các Dịch Vụ Của Chúng Tôi</h2>
+        <h2 class="section-title">Dịch Vụ</h2>
         <div class="service-grid">
-            <div class="service-card">
-                <i class="fas fa-car-side"></i>
-                <h3>Xe Mũi Né - Đà Lạt</h3>
+            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-car-side"></i>
+                    <h3>Mũi Né ⇄ Đà Lạt</h3>
+                </div>
                 <div class="price-list">
-                    <p>🚗 Xe 5 chỗ: 1.400k</p>
-                    <p>🚙 Xe 7 chỗ: 1.600k</p>
-                    <p>                    <p>🚌 Xe 16 chỗ: 2.400k</p>
+                    <p>🚗 5 chỗ: 1.400k</p>
+                    <p>🚙 7 chỗ: 1.600k</p>
+                    <p>🚌 16 chỗ: 2.400k</p>
                 </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-bus"></i>
-                <h3>Xe Sài Gòn - Đà Lạt</h3>
+            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-bus"></i>
+                    <h3>Sài Gòn ⇄ Đà Lạt</h3>
+                </div>
                 <div class="price-list">
-                    <p>🚗 Xe 5 chỗ: 2.700k</p>
-                    <p>🚙 Xe 7 chỗ: 3.000k</p>
-                    <p>🚌 Xe 16 chỗ: 5.000k</p>
+                    <p>🚗 5 chỗ: 2.700k</p>
+                    <p>🚙 7 chỗ: 3.000k</p>
+                    <p>🚌 16 chỗ: 5.000k</p>
                 </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-cloud"></i>
-                <h3>Xe Đi Săn Mây</h3>
+            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Đi Săn Mây</h3>
+                </div>
                 <div class="price-list">
-                    <p>👥 Ghép khách: 199k/người</p>
-                    <p>🚗 Xe 4 chỗ: 699k</p>
-                    <p>🚙 Xe 7 chỗ: 799k</p>
-                    <p>🚌 Xe 16 chỗ: 1.199k</p>
+                    <p>👥 Ghép: 199k/người</p>
+                    <p>🚗 4 chỗ: 699k</p>
+                    <p>🚙 7 chỗ: 799k</p>
+                    <p>🚌 16 chỗ: 1.199k</p>
                 </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-clock"></i>
-                <h3>Thuê Xe 1 Ngày Tại Đà Lạt</h3>
+            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-clock"></i>
+                    <h3>Thuê 1 Ngày Tại Đà Lạt</h3>
+                </div>
                 <div class="price-list">
-                    <p>🚗 Xe 5 chỗ: 899k</p>
-                    <p>🚙 Xe 7 chỗ: 999k</p>
-                    <p>🚌 Xe 16 chỗ: 1.399k</p>
+                    <p>🚗 5 chỗ: 899k</p>
+                    <p>🚙 7 chỗ: 999k</p>
+                    <p>🚌 16 chỗ: 1.399k</p>
                 </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-road"></i>
-                <h3>Xe Sài Gòn - Nha Trang</h3>
+            <div class            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-road"></i>
+                    <h3>Sài Gòn ⇄ Nha Trang</h3>
+                </div>
                 <div class="price-list">
-                    <p>🚗 Xe 5 chỗ: 2.700k</p>
-                    <p>🚙 Xe 7 chỗ: 3.000k</p>
-                    <p>🚌 Xe 16 chỗ: 5.000k</p>
+                    <p>🚗 5 chỗ: 2.700k</p>
+                    <p>🚙 7 chỗ: 3.000k</p>
+                    <p>🚌 16 chỗ: 5.000k</p>
                 </div>
             </div>
-            <div class="service-card">
-                <i class="fas fa-file-contract"></i>
-                <h3>Thuê Xe Hợp Đồng</h3>
+            <div class="service-card animate-in">
+                <div class="service-card-header">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Thuê Xe Hợp Đồng</h3>
+                </div>
                 <div class="price-list">
-                    <p>🚙 Thuê xe 7 chỗ: 9k/1km</p>
-                    <p>🚌 16 chỗ - 9 chỗ Limousine: 12-15k/1km</p>
-                    <p>🚗 Thuê xe sang: 25k/1km</p>
-                    <p>🚙 Thuê xe 4 chỗ: 8k/1km</p>
+                    <p>🚙 7 chỗ: 9k/km</p>
+                    <p>🚌 16-9 chỗ Limousine: 12-15k/km</p>
+                    <p>🚗 Xe sang: 25k/km</p>
+                    <p>🚙 4 chỗ: 8k/km</p>
                 </div>
             </div>
         </div>
@@ -701,17 +1083,22 @@
     <!-- CTA Section -->
     <section class="cta">
         <h2><i class="fas fa-phone-volume"></i> Gọi Là Có Xe Đón Ngay</h2>
-        <p>Ưu tiên đặt lịch trước để chúng tôi bố trí xe tốt nhất và đời mới nhất phục vụ bạn. Chỉ trong 5 phút chúng tôi sẽ bố trí xong tài xế phục vụ bạn.</p>
-        <a href="tel:0889999415" class="cta-phone">
-            <i class="fas fa-phone-alt"></i> Gọi Ngay: 0889999415
-        </a>
+        <p>Ưu tiên đặt lịch trước để chúng tôi bố trí xe tốt nhất và đời mới nhất. Chỉ 5 phút là có xe phục vụ bạn!</p>
+        <div class="cta-phones">
+            <a href="tel:0911099712" class="cta-phone">
+                <i class="fas fa-phone-alt"></i> Gọi: 0911099712
+            </a>
+            <a href="tel:0877019712" class="cta-phone-secondary">
+                <i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712
+            </a>
+        </div>
     </section>
     <!-- Testimonials -->
     <section class="section testimonials-bg" id="criteria">
-        <h2 class="section-title">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+        <h2 class="section-title">Đánh Giá Khách Hàng</h2>
         <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">Tôi rất hay đi Nha Trang và đã từng sử dụng dịch vụ của nhiều hãng khác nhau, tôi thích sử dụng dịch vụ của Xe dịch vụ Nha Trang vì sự dễ thương nhiệt tình, giá cả lại phải chăng.</p>
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">Tôi rất hay đi Nha Trang và đã sử dụng nhiều hãng, nhưng thích dịch vụ ở đây vì sự nhiệt tình, giá cả phải chăng.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">MN</div>
                     <div class="author-info">
@@ -720,8 +1107,8 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">Đặt xe rất nhanh, tôi đặt xe đi từ Nha Trang đến Đà Lạt xe 7 chỗ sạch sẽ mà giá 1triệu 2, với tôi thấy giá khá oke xe cũng rất chất lượng. Tôi sẽ tiếp tục ủng hộ xe dịch vụ Nha Trang.</p>
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">Đặt xe nhanh, đi Nha Trang - Đà Lạt xe 7 chỗ sạch sẽ giá 1tr2, giá oke xe chất lượng. Sẽ tiếp tục ủng hộ!</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">PC</div>
                     <div class="author-info">
@@ -730,8 +1117,8 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">Được bạn bè giới thiệu sử dụng xe dịch vụ Nha Trang mình từ đi 1 lần từ Nha Trang đến Đà Lạt xe 4 chỗ mà giá 1 triệu thôi, tài xế rất thông thạo đường và không phải chờ lâu như các hãng xe khác.</p>
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">Được bạn giới thiệu, đi Nha Trang - Đà Lạt xe 4 chỗ giá 1 triệu. Tài xế thông thạo đường, không phải chờ lâu.</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">AN</div>
                     <div class="author-info">
@@ -740,8 +1127,8 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">Xe đẹp và mới, tài xế người trong tỉnh nhiệt tình, vui vẻ, nói chuyện rất lịch nói chuyện rất lịch sự, rành đường không phải đi lòng vòng phát sinh nhiều cước. Tôi sẽ tiếp tục ủng hộ các bạn khi quay lại Khánh Hòa du lịch.</p>
+            <div class="testimonial-card animate-in">
+                <p class="testimonial-text">Xe đẹp, mới, tài xế người trong tỉnh nhiệt tình, rành đường không đi lòng vòng. Sẽ tiếp tục ủng hộ khi quay lại!</p>
                 <div class="testimonial-author">
                     <div class="author-avatar">TT</div>
                     <div class="author-info">
@@ -756,20 +1143,21 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3> <i class="fas fa-info-circle"></i> Thông Tin Liên Hệ</h3>
+                <h3><i class="fas fa-info-circle"></i> Liên Hệ</h3>
                 <div class="footer-contact">
                     <p><i class="fas fa-map-marker-alt"></i> Hộ Kinh Doanh Nguyễn Trọng Tài</p>
-                    <p><i class="fas fa-phone-alt"></i> Hotline: 0889999415</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>HOTLINE: 0911099712</strong></p>
+                    <p><i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712</p>
                     <p><i class="fas fa-envelope"></i> Email: taxi@xedalatnhatrang.xyz</p>
                 </div>
             </div>
             <div class="footer-section">
-                <h3><i class="fas fa-link"></i> Liên Kết Nhanh</h3>
+                <h3><i class="fas fa-link"></i> Liên Kết</h3>
                 <ul>
                     <li><a href="#home">Trang Chủ</a></li>
                     <li><a href="#services">Dịch Vụ</a></li>
                     <li><a href="#prices">Bảng Giá</a></li>
-                    <li><a="#gallery">Hình Ảnh</a></li>
+                    <li><a href="#gallery">Hình Ảnh</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -786,20 +1174,120 @@
                 <ul>
                     <li>✓ Thuê xe giá rẻ</li>
                     <li>✓ Xe đời mới, sạch sẽ</li>
-                    <li><i class="fas fa-check-circle" style="color:#25d366"></i> Đã xác thực website uy tín ✅</li>
+                    <li>✅ Đã xác thực website uy tín</li>
                     <li>✓ Tài xế chuyên nghiệp</li>
                     <li>✓ Phục vụ 24/24</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 Thuê Xe Đà Lạt Nha Trang. All Rights Reserved. | Cảm ơn quý khách đã tin dùng dịch vụ của chúng tôi!</p>
+            <p>© 2024 Thuê Xe Đà Lạt Nha Trang. All Rights Reserved.<br>Cảm ơn quý khách đã tin dùng dịch vụ của chúng tôi!</p>
         </div>
     </footer>
-    <!-- Floating Call Button -->
-    <a href="tel:0889999415" class="floating-call" title="Gọi ngay">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Floating Call Buttons -->
+    <div class="floating-calls">
+        <a href=" <a href="tel:0911099712" class="floating-call" title="Gọi hotline chính">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:0877019712" class="floating-call secondary" title="Gọi line phụ">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop" title="Lên đầu trang">
+        <i class="fas fa-arrow-up"></i>
     </a>
-
+    <!-- Scripts -->
+    <script>
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navListMobile = document.getElementById('navListMobile');
+        function toggleNav() {
+            navListMobile.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navListMobile.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        function closeNav() {
+            navListMobile.classList.remove('active');
+            const icon = navToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+        navToggle.addEventListener('click', toggleNav);
+        // Close nav when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navToggle.contains(e.target) && !navListMobile.contains(e.target)) {
+                closeNav();
+            }
+        });
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = target.offsetTop - 70;
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                    closeNav();
+                }
+            });
+        });
+        // Animate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.animate-in').forEach(function(el) {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        // Hide loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            }, 500);
+        });
+        // Prevent double-tap zoom on iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(e) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
 </body>
 </html>
