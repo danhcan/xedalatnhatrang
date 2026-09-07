@@ -465,7 +465,7 @@
         /* ===== LOẠI XE ===== */
         .vehicle-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 18px;
         }
         .vehicle-card {
@@ -907,7 +907,7 @@
                 </ul>
             </nav>
             <div style="display:flex; align-items:center; gap:10px;">
-                <a href="tel:0911099712" class="header-cta"><i class="fas fa-phone"></i><span>0911 099 712</span></a>
+                <a href="tel:0911099712" data-tel="main" class="header-cta"><i class="fas fa-phone"></i><span>0911 099 712</span></a>
                 <button class="nav-toggle" id="navToggle" aria-label="Mở menu"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -921,8 +921,8 @@
                 <h1>Thuê Xe <span class="accent">Nha Trang</span> – <span class="accent">Đà Lạt</span> Uy Tín, Giá Tốt Nhất</h1>
                 <p class="lead">Chuyên tuyến Nha Trang – Đà Lạt – Cam Ranh – Sài Gòn – Mũi Né. Xe đời mới, sạch sẽ, tài xế người trong tỉnh rành đường, phục vụ 24/24.</p>
                 <div class="hero-actions">
-                    <a href="tel:0911099712" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Gọi Ngay: 0911099712</a>
-                    <a href="tel:0877019712" class="btn btn-ghost"><i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712</a>
+                    <a href="tel:0911099712" data-tel="main" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Gọi Ngay: 0911099712</a>
+                    <a href="tel:0877019712" data-tel="sub" class="btn btn-ghost"><i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat"><b>5 phút</b><span>Có xe đón ngay</span></div>
@@ -935,11 +935,11 @@
                 <h3><i class="fas fa-headset" style="color:var(--blue);"></i> Đặt xe nhanh</h3>
                 <p class="sub">Gọi hotline – ưu tiên đặt lịch trước để được xe đời mới nhất</p>
                 <div class="hotline-row">
-                    <a href="tel:0911099712" class="hotline-btn main">
+                    <a href="tel:0911099712" data-tel="main" class="hotline-btn main">
                         <i class="fas fa-phone-alt"></i>
                         <span>0911 099 712<small>Hotline chính – Gọi là đi ngay</small></span>
                     </a>
-                    <a href="tel:0877019712" class="hotline-btn sub-line">
+                    <a href="tel:0877019712" data-tel="sub" class="hotline-btn sub-line">
                         <i class="fas fa-phone-volume"></i>
                         <span>0877 019 712<small>Line phụ – Zalo hỗ trợ</small></span>
                     </a>
@@ -1112,38 +1112,52 @@
             </div>
             <div class="vehicle-grid">
                 <article class="vehicle-card reveal">
-                    <img src="https://picsum.photos/seed/vios/400/220.jpg" alt="Xe 4-5 chỗ Vios/Accent" class="vehicle-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-46-01.png" alt="Toyota Raize – xe 4 chỗ tiết kiệm" class="vehicle-img" loading="lazy">
                     <div class="vehicle-info">
-                        <h4>Vios / Accent</h4>
-                        <p><i class="fas fa-user-group"></i> 1–3 khách</p>
+                        <h4>Toyota Raize</h4>
+                        <p><i class="fas fa-user-group"></i> 1–4 khách</p>
                     </div>
                 </article>
                 <article class="vehicle-card reveal">
-                    <img src="https://picsum.photos/seed/carnival/400/220.jpg" alt="Xe 7 chỗ Carnival" class="vehicle-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-46-15.png" alt="Hyundai Creta – xe 4 chỗ hiện đại" class="vehicle-img" loading="lazy">
                     <div class="vehicle-info">
-                        <h4>Carnival</h4>
-                        <p><i class="fas fa-user-group"></i> 4–7 khách</p>
+                        <h4>Hyundai Creta</h4>
+                        <p><i class="fas fa-user-group"></i> 1–4 khách</p>
                     </div>
                 </article>
                 <article class="vehicle-card reveal">
-                    <img src="https://picsum.photos/seed/limousine/400/220.jpg" alt="Limousine 9 chỗ" class="vehicle-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-47-19.png" alt="Ford EcoSport – xe 4 chỗ" class="vehicle-img" loading="lazy">
                     <div class="vehicle-info">
-                        <h4>Limousine</h4>
+                        <h4>Ford EcoSport</h4>
+                        <p><i class="fas fa-user-group"></i> 1–4 khách</p>
+                    </div>
+                </article>
+                <article class="vehicle-card reveal">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-44-34.png" alt="Honda BR-V – xe 7 chỗ" class="vehicle-img" loading="lazy">
+                    <div class="vehicle-info">
+                        <h4>Honda BR-V</h4>
+                        <p><i class="fas fa-user-group"></i> 5–7 khách</p>
+                    </div>
+                </article>
+                <article class="vehicle-card reveal">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-44-43.png" alt="Hyundai Santa Fe – xe 7 chỗ rộng rãi" class="vehicle-img" loading="lazy">
+                    <div class="vehicle-info">
+                        <h4>Hyundai Santa Fe</h4>
+                        <p><i class="fas fa-user-group"></i> 6–7 khách</p>
+                    </div>
+                </article>
+                <article class="vehicle-card reveal">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-56-18.png" alt="Limousine 9 chỗ cao cấp" class="vehicle-img" loading="lazy">
+                    <div class="vehicle-info">
+                        <h4>Limousine 9 chỗ</h4>
                         <p><i class="fas fa-user-group"></i> 5–9 khách</p>
                     </div>
                 </article>
                 <article class="vehicle-card reveal">
-                    <img src="https://picsum.photos/seed/massage/400/220.jpg" alt="Limousine massage" class="vehicle-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-56-30.png" alt="Nội thất Limousine – ghế da cao cấp" class="vehicle-img" loading="lazy">
                     <div class="vehicle-info">
-                        <h4>Limousine Massage</h4>
-                        <p><i class="fas fa-user-group"></i> 3–6 khách</p>
-                    </div>
-                </article>
-                <article class="vehicle-card reveal">
-                    <img src="https://picsum.photos/seed/transit/400/220.jpg" alt="Ford Transit 16 chỗ" class="vehicle-img" loading="lazy">
-                    <div class="vehicle-info">
-                        <h4>Ford Transit</h4>
-                        <p><i class="fas fa-user-group"></i> 8–15 khách</p>
+                        <h4>Limousine Nội Thất</h4>
+                        <p><i class="fas fa-couch"></i> Ghế da sang trọng</p>
                     </div>
                 </article>
             </div>
@@ -1214,8 +1228,8 @@
             <h2>Gọi Là Có Xe Đón Ngay</h2>
             <p>Ưu tiên đặt lịch trước để chúng tôi bố trí xe tốt nhất và đời mới nhất. Chỉ 5 phút là có xe phục vụ bạn!</p>
             <div class="cta-actions">
-                <a href="tel:0911099712" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Gọi: 0911 099 712</a>
-                <a href="tel:0877019712" class="btn btn-ghost"><i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712</a>
+                <a href="tel:0911099712" data-tel="main" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Gọi: 0911 099 712</a>
+                <a href="tel:0877019712" data-tel="sub" class="btn btn-ghost"><i class="fas fa-phone-volume"></i> Line phụ: 0877 019 712</a>
             </div>
         </div>
     </section>
@@ -1254,8 +1268,8 @@
                     <h3>Liên Hệ</h3>
                     <div class="footer-contact">
                         <p><i class="fas fa-map-marker-alt"></i><span>Hộ Kinh Doanh Nguyễn Trọng Tài</span></p>
-                        <p><i class="fas fa-phone-alt"></i><span><strong>HOTLINE: <a href="tel:0911099712" style="color:#fff;">0911 099 712</a></strong></span></p>
-                        <p><i class="fas fa-phone-volume"></i><span>Line phụ: <a href="tel:0877019712">0877 019 712</a></span></p>
+                        <p><i class="fas fa-phone-alt"></i><span><strong>HOTLINE: <a href="tel:0911099712" data-tel="main" style="color:#fff;">0911 099 712</a></strong></span></p>
+                        <p><i class="fas fa-phone-volume"></i><span>Line phụ: <a href="tel:0877019712" data-tel="sub">0877 019 712</a></span></p>
                         <p><i class="fas fa-envelope"></i><span><a href="mailto:taxi@xedalatnhatrang.xyz">taxi@xedalatnhatrang.xyz</a></span></p>
                     </div>
                 </div>
@@ -1276,8 +1290,8 @@
 
     <!-- Nút gọi nổi -->
     <div class="floating-calls">
-        <a href="tel:0911099712" class="floating-call main" title="Gọi hotline chính" aria-label="Gọi hotline chính"><i class="fas fa-phone"></i></a>
-        <a href="tel:0877019712" class="floating-call secondary" title="Gọi line phụ" aria-label="Gọi line phụ"><i class="fas fa-phone-volume"></i></a>
+        <a href="tel:0911099712" data-tel="main" class="floating-call main" title="Gọi hotline chính" aria-label="Gọi hotline chính"><i class="fas fa-phone"></i></a>
+        <a href="tel:0877019712" data-tel="sub" class="floating-call secondary" title="Gọi line phụ" aria-label="Gọi line phụ"><i class="fas fa-phone-volume"></i></a>
     </div>
     <a href="#" class="back-to-top" id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang"><i class="fas fa-arrow-up"></i></a>
 
@@ -1364,11 +1378,22 @@
     </div>
 
     <script>
-        /* ================= TRỢ LÝ AI ================= */
-        // TODO: Sau khi triển khai Worker, thay URL này bằng URL worker của bạn
-        const AI_CONFIG = { endpoint: '', model: 'gemini-2.0-flash' };
+        /* ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈
+           ✏️  SỬA NỘI DUNG TRANG Ở ĐÂY (đổi xong lưu file + upload lại GitHub)
+           Mẹo nhanh: mở trang thêm ?edit=1 vào URL → sửa chữ trực tiếp trên
+           trang → bấm "⬇ Tải index.html" → upload lên GitHub. Không cần sửa code.
+           ◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈ */
+        const SITE_CONFIG = {
+            hotline:  '0911 099 712',             // Hotline chính (hiển thị trên web + chatbot)
+            hotline2: '0877 019 712',             // Line phụ / Zalo
+            email:    'taxi@xedalatnhatrang.xyz',
+            owner:    'Nguyễn Trọng Tài',         // Tên hộ kinh doanh
+        };
 
-        // Dữ liệu giá (nếu sửa bảng giá ở trên thì sửa cả đây)
+        // Sau khi triển khai Worker: điền URL worker vào endpoint
+        const AI_CONFIG = { endpoint: 'https://chothuexe.danhlinux2026.workers.dev', model: 'gemini-3.1-flash-lite' };
+
+        // Bảng giá chatbot trả lời offline (sửa cho khớp bảng giá hiển thị trên web)
         const PRICE_DATA = {
             'nha trang da lat': [['Xe 5 chỗ', '1.000.000₫'], ['Xe 7 chỗ', '1.200.000₫'], ['Xe 16 chỗ', '2.000.000₫'], ['Limousine 9 chỗ', '2.200.000₫'], ['Xe 29 chỗ', '4.000.000₫']],
             'cam ranh da lat': [['Xe 5 chỗ', '1.000.000₫'], ['Xe 7 chỗ', '1.200.000₫'], ['Xe 16 chỗ', '2.200.000₫'], ['Limousine 9 chỗ', '2.400.000₫'], ['Xe 29 chỗ', '4.200.000₫'], ['Xe sang', '3.400.000₫']],
@@ -1380,18 +1405,145 @@
             'thue xe trong ngay': [['Xe 5 chỗ', '899k'], ['Xe 7 chỗ', '999k'], ['Xe 16 chỗ', '1.399k']]
         };
 
-        // Câu trả lời mẫu (fallback offline)
+        // Câu trả lời mẫu (fallback offline) — tự dùng số ĐT/email từ SITE_CONFIG
         const FAQ_DATA = {
             price: (k) => {
                 const rows = PRICE_DATA[k] || [];
-                return '🚗 Bảng giá của chúng tôi:\n' + rows.map(r => '• ' + r[0] + ': ' + r[1]).join('\n') + '\n\n📞 Gọi 0911099712 để được giữ xe ngay!';
+                return '🚗 Bảng giá của chúng tôi:\n' + rows.map(r => '• ' + r[0] + ': ' + r[1]).join('\n') + '\n\n📞 Gọi ' + SITE_CONFIG.hotline + ' để được giữ xe ngay!';
             },
-            booking: '✅ Đặt xe rất đơn giản:\n1️⃣ Gọi hotline 0911099712 (hoặc line phụ 0877 019 712)\n2️⃣ Năm rõ điểm đón – điểm đến – giờ đi\n3️⃣ Nhận tin nhắn xác nhận kèm biển số xe\n\n⏱️ Chỉ 5 phút là có xe đón!',
-            contact: '📞 Hotline chính: 0911099712\n📱 Line phụ/Zalo: 0877 019 712\n✉️ Email: taxi@xedalatnhatrang.xyz\n🏢 Hộ Kinh Doanh Nguyễn Trọng Tài – phục vụ 24/24!',
-            car: '🚐 Các loại xe đang phục vụ:\n• Vios/Accent (1-3 khách)\n• Carnival (4-7 khách)\n• Limousine (5-9 khách)\n• Limousine Massage (3-6 khách)\n• Ford Transit (8-15 khách)\n\nXe đời mới, sạch sẽ, tài xế chuyên nghiệp!',
+            booking: '✅ Đặt xe rất đơn giản:\n1️⃣ Gọi hotline ' + SITE_CONFIG.hotline + ' (hoặc line phụ ' + SITE_CONFIG.hotline2 + ')\n2️⃣ Năm rõ điểm đón – điểm đến – giờ đi\n3️⃣ Nhận tin nhắn xác nhận kèm biển số xe\n\n⏱️ Chỉ 5 phút là có xe đón!',
+            contact: '📞 Hotline chính: ' + SITE_CONFIG.hotline + '\n📱 Line phụ/Zalo: ' + SITE_CONFIG.hotline2 + '\n✉️ Email: ' + SITE_CONFIG.email + '\n🏢 Hộ Kinh Doanh ' + SITE_CONFIG.owner + ' – phục vụ 24/24!',
+            car: '🚐 Các loại xe đang phục vụ:\n• Toyota Raize (1-4 khách)\n• Hyundai Creta (1-4 khách)\n• Ford EcoSport (1-4 khách)\n• Honda BR-V (5-7 khách)\n• Hyundai Santa Fe (6-7 khách)\n• Limousine 9 chỗ (5-9 khách, ghế da cao cấp)\n\nNgoài ra còn có xe 16-29 chỗ cho đoàn lớn.\nXe đời mới, sạch sẽ, tài xế chuyên nghiệp!',
             time: '⏰ Chúng tôi phục vụ 24/24 – gọi là có xe, chỉ 5 phút sau là xe đến đón bạn!',
-            default: 'Chào bạn! 🚗 Mình là trợ lý ảo của Thuê Xe Đà Lạt – Nha Trang. Mình có thể tư vấn về:\n• Bảng giá các tuyến xe\n• Đặt xe và thời gian đón\n• Các loại xe phục vụ\n• Thông tin liên hệ\n\nBạn muốn biết gì nào? (Hoặc gọi ngay 0911099712 để được hỗ trợ nhanh nhất!)'
+            default: 'Chào bạn! 🚗 Mình là trợ lý ảo của Thuê Xe Đà Lạt – Nha Trang. Mình có thể tư vấn về:\n• Bảng giá các tuyến xe\n• Đặt xe và thời gian đón\n• Các loại xe phục vụ\n• Thông tin liên hệ\n\nBạn muốn biết gì nào? (Hoặc gọi ngay ' + SITE_CONFIG.hotline + ' để được hỗ trợ nhanh nhất!)'
         };
+
+        /* ===== Đồng bộ hotline/email/tên doanh nghiệp từ SITE_CONFIG ra toàn trang ===== */
+        function applySiteConfig() {
+            const c = SITE_CONFIG;
+            const telOf = s => s.replace(/[^0-9]/g, '');
+            const phoneRe = /0\d{2}[\s.-]?\d{3}[\s.-]?\d{3,4}/g;
+            // Số điện thoại trong nút gọi / liên kết (dựa trên data-tel)
+            document.querySelectorAll('a[data-tel]').forEach(a => {
+                const val = a.dataset.tel === 'sub' ? c.hotline2 : c.hotline;
+                a.setAttribute('href', 'tel:' + telOf(val));
+                a.childNodes.forEach(n => {
+                    if (n.nodeType === 3) {
+                        const nv = n.nodeValue.replace(phoneRe, val);
+                        if (nv !== n.nodeValue) n.nodeValue = nv;
+                    }
+                });
+            });
+            // Email trong link mailto
+            document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+                if (a.getAttribute('href').includes('taxi@xedalatnhatrang.xyz')) {
+                    a.setAttribute('href', 'mailto:' + c.email);
+                    a.childNodes.forEach(n => {
+                        if (n.nodeType === 3) {
+                            const nv = n.nodeValue.replace(/taxi@xedalatnhatrang\.xyz/g, c.email);
+                            if (nv !== n.nodeValue) n.nodeValue = nv;
+                        }
+                    });
+                }
+            });
+            // Email + tên doanh nghiệp trong văn bản thường
+            const walk = (el) => {
+                el.childNodes.forEach(n => {
+                    if (n.nodeType === 3) {
+                        let t = n.nodeValue;
+                        t = t.replace(/taxi@xedalatnhatrang\.xyz/g, c.email);
+                        t = t.replace('Nguyễn Trọng Tài', c.owner);
+                        if (t !== n.nodeValue) n.nodeValue = t;
+                    } else if (n.nodeType === 1 && !n.matches('script,style')) walk(n);
+                });
+            };
+            walk(document.body);
+        }
+
+        /* ===== CHẾ ĐỘ CHỈNH SỬA TRỰC TIẾP (mở trang với ?edit=1) ===== */
+        function initEditMode() {
+            document.body.classList.add('edit-mode');
+            const style = document.createElement('style');
+            style.id = 'editModeStyle';
+            style.textContent = `
+                #editBanner { position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+                    background: #0f172a; color: #fff; padding: 10px 16px; display: flex;
+                    align-items: center; gap: 12px; flex-wrap: wrap; font-size: .85em;
+                    box-shadow: 0 4px 20px rgba(0,0,0,.3); font-family: 'Be Vietnam Pro', sans-serif; }
+                #editBanner b { color: #fbbf24; }
+                #editBanner button { border: none; border-radius: 999px; padding: 8px 16px;
+                    font-weight: 700; cursor: pointer; font-family: inherit; font-size: .95em; }
+                #btnDownload { background: linear-gradient(135deg, #f59e0b, #d97706); color: #fff; }
+                #btnExitEdit { background: rgba(255,255,255,.15); color: #fff; }
+                body.edit-mode { padding-top: 52px; }
+                body.edit-mode [data-edit] { outline: 1.5px dashed rgba(37,99,235,.4); outline-offset: 2px; cursor: text; min-height: 1em; }
+                body.edit-mode [data-edit]:hover { outline-color: #f59e0b; background: rgba(245,158,11,.08); }
+                body.edit-mode [data-edit]:focus { outline: 2px solid #2563eb; background: #fffbeb; }
+                body.edit-mode img { cursor: pointer; }
+                body.edit-mode img:hover { outline: 3px solid #f59e0b; }
+            `;
+            document.head.appendChild(style);
+            const banner = document.createElement('div');
+            banner.id = 'editBanner';
+            banner.innerHTML =
+                '<b>🔒 CHẾ ĐỘ CHỈNH SỬA</b>' +
+                '<span style="opacity:.85;">Bấm vào chữ để sửa · Bấm vào ảnh để đổi ảnh · Chỉ bạn thấy trang này</span>' +
+                '<button id="btnDownload">⬇ Tải index.html</button>' +
+                '<button id="btnExitEdit">✕ Thoát</button>';
+            document.body.appendChild(banner);
+            // Đánh dấu mọi phần tử chỉ chứa chữ → sửa được
+            document.querySelectorAll('body *').forEach(el => {
+                if (el.closest('#aiPanel, #aiFab, #editBanner')) return;
+                if (el.matches('script,style,i,svg,img,br')) return;
+                if (el.childElementCount === 0 && el.textContent.trim()) {
+                    el.contentEditable = 'true';
+                    el.setAttribute('data-edit', '1');
+                }
+            });
+            // Chặn điều hướng khi bấm link trong lúc sửa + cho phép đổi ảnh
+            document.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG' && !e.target.closest('#aiPanel')) {
+                    e.preventDefault();
+                    const url = prompt('Dán link ảnh mới:', e.target.getAttribute('src'));
+                    if (url) e.target.setAttribute('src', url);
+                    return;
+                }
+                const a = e.target.closest('a');
+                if (a && !a.closest('#editBanner')) e.preventDefault();
+            }, true);
+            // Tải về bản HTML sạch (đã bỏ dấu vết chế độ chỉnh sửa)
+            document.getElementById('btnDownload').addEventListener('click', () => {
+                const doc = new DOMParser().parseFromString(document.documentElement.outerHTML, 'text/html');
+                doc.getElementById('editBanner')?.remove();
+                doc.getElementById('editModeStyle')?.remove();
+                doc.querySelectorAll('[data-edit]').forEach(el => {
+                    el.removeAttribute('contenteditable');
+                    el.removeAttribute('data-edit');
+                });
+                doc.body.classList.remove('edit-mode');
+                doc.querySelectorAll('.reveal').forEach(el => { el.classList.remove('visible'); el.removeAttribute('style'); });
+                doc.querySelectorAll('.msg, .ai-call-btn').forEach(el => el.remove());
+                doc.querySelectorAll('#aiMsgs, #aiQuick').forEach(el => { el.innerHTML = ''; });
+                doc.getElementById('aiPanel')?.classList.remove('open');
+                const fab = doc.getElementById('aiFab');
+                if (fab) fab.removeAttribute('style');
+                doc.getElementById('backToTop')?.classList.remove('show');
+                const out = '<!DOCTYPE html>\n' + doc.documentElement.outerHTML;
+                const blob = new Blob([out], { type: 'text/html;charset=utf-8' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'index.html';
+                a.click();
+                URL.revokeObjectURL(a.href);
+            });
+            document.getElementById('btnExitEdit').addEventListener('click', () => {
+                location.replace(location.pathname);
+            });
+        }
+
+        // Chạy đồng bộ config khi mở trang; bật chế độ chỉnh sửa nếu có ?edit=1
+        applySiteConfig();
+        if (new URLSearchParams(location.search).has('edit')) initEditMode();
 
         const aiPanel = document.getElementById('aiPanel');
         const aiFab = document.getElementById('aiFab');
