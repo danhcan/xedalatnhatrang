@@ -46,7 +46,7 @@
         "url": "https://xedalatnhatrang.click/",
         "image": "https://raw.githubusercontent.com/danhcan/xedalatnhatrang/main/Ch%E1%BB%A5p%20m%C3%A0n%20h%C3%ACnh%20t%E1%BB%AB%202026-09-08%2004-56-18.png",
         "telephone": "+84911099712",
-        "email": "taxi@xedalatnhatrang.xyz",
+        "email": "mail@xedalatnhatrang.click",
         "priceRange": "1.000.000₫ – 5.000.000₫",
         "currenciesAccepted": "VND",
         "paymentAccepted": "Tiền mặt, Chuyển khoản",
@@ -1102,7 +1102,7 @@
     <div class="topbar">
         <div class="container topbar-inner">
             <span><i class="fas fa-circle dot" style="font-size:.6em; vertical-align:middle;"></i> Phục vụ 24/24 – Xe đón sau 5 phút</span>
-            <span class="hide-sm">Email: <a href="mailto:taxi@xedalatnhatrang.xyz">taxi@xedalatnhatrang.xyz</a></span>
+            <span class="hide-sm">Email: <a href="mailto:mail@xedalatnhatrang.click">mail@xedalatnhatrang.click</a> · <a href="mailto:mail@xedalatnhatrang.top">mail@xedalatnhatrang.top</a></span>
         </div>
     </div>
 
@@ -1555,7 +1555,7 @@
                         <p><i class="fas fa-map-marker-alt"></i><span>Hộ Kinh Doanh Nguyễn Trọng Tài</span></p>
                         <p><i class="fas fa-phone-alt"></i><span><strong>HOTLINE: <a href="tel:0911099712" data-tel="main" style="color:#fff;">0911 099 712 (A.Huy)</a></strong></span></p>
                         <p><i class="fas fa-phone-volume"></i><span>Line phụ: <a href="tel:0909126122" data-tel="sub">0909 126 122 (Vy Tuong)</a></span></p>
-                        <p><i class="fas fa-envelope"></i><span><a href="mailto:taxi@xedalatnhatrang.xyz">taxi@xedalatnhatrang.xyz</a></span></p>
+                        <p><i class="fas fa-envelope"></i><span><a href="mailto:mail@xedalatnhatrang.click">mail@xedalatnhatrang.click</a> · <a href="mailto:mail@xedalatnhatrang.top">mail@xedalatnhatrang.top</a></span></p>
                     </div>
                 </div>
             </div>
@@ -1679,7 +1679,8 @@
         const SITE_CONFIG = {
             hotline:  '0911 099 712',             // Hotline chính (hiển thị trên web + chatbot)
             hotline2: '0909 126 122',             // Line phụ / Zalo
-            email:    'taxi@xedalatnhatrang.xyz',
+            email:    'mail@xedalatnhatrang.click',
+            email2:   'mail@xedalatnhatrang.top',
             owner:    'Nguyễn Trọng Tài',         // Tên hộ kinh doanh
         };
 
@@ -1705,7 +1706,7 @@
                 return '🚗 Bảng giá của chúng tôi:\n' + rows.map(r => '• ' + r[0] + ': ' + r[1]).join('\n') + '\n\n📞 Gọi ' + SITE_CONFIG.hotline + ' để được giữ xe ngay!';
             },
             booking: '✅ Đặt xe rất đơn giản:\n1️⃣ Gọi hotline ' + SITE_CONFIG.hotline + ' (hoặc line phụ ' + SITE_CONFIG.hotline2 + ')\n2️⃣ Năm rõ điểm đón – điểm đến – giờ đi\n3️⃣ Nhận tin nhắn xác nhận kèm biển số xe\n\n⏱️ Chỉ 5 phút là có xe đón!',
-            contact: '📞 Hotline chính: ' + SITE_CONFIG.hotline + '\n📱 Line phụ/Zalo: ' + SITE_CONFIG.hotline2 + '\n✉️ Email: ' + SITE_CONFIG.email + '\n🏢 Hộ Kinh Doanh ' + SITE_CONFIG.owner + ' – phục vụ 24/24!',
+            contact: '📞 Hotline chính: ' + SITE_CONFIG.hotline + '\n📱 Line phụ/Zalo: ' + SITE_CONFIG.hotline2 + '\n✉️ Email: ' + SITE_CONFIG.email + ' · ' + SITE_CONFIG.email2 + '\n🏢 Hộ Kinh Doanh ' + SITE_CONFIG.owner + ' – phục vụ 24/24!',
             car: '🚐 Các loại xe đang phục vụ:\n• Toyota Raize (1-4 khách)\n• Hyundai Creta (1-4 khách)\n• Ford EcoSport (1-4 khách)\n• Honda BR-V (5-7 khách)\n• Hyundai Santa Fe (6-7 khách)\n• Limousine 9 chỗ (5-9 khách, ghế da cao cấp)\n\nNgoài ra còn có xe 16-29 chỗ cho đoàn lớn.\nXe đời mới, sạch sẽ, tài xế chuyên nghiệp!',
             time: '⏰ Chúng tôi phục vụ 24/24 – gọi là có xe, chỉ 5 phút sau là xe đến đón bạn!',
             default: 'Chào bạn! 🚗 Mình là trợ lý ảo của Thuê Xe Đà Lạt – Nha Trang. Mình có thể tư vấn về:\n• Bảng giá các tuyến xe\n• Đặt xe và thời gian đón\n• Các loại xe phục vụ\n• Thông tin liên hệ\n\nBạn muốn biết gì nào? (Hoặc gọi ngay ' + SITE_CONFIG.hotline + ' để được hỗ trợ nhanh nhất!)'
@@ -1727,13 +1728,15 @@
                     }
                 });
             });
-            // Email trong link mailto
+            // Email trong link mailto (hỗ trợ 2 domain: .click và .top)
             document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-                if (a.getAttribute('href').includes('taxi@xedalatnhatrang.xyz')) {
-                    a.setAttribute('href', 'mailto:' + c.email);
+                const href = a.getAttribute('href') || '';
+                if (/xedalatnhatrang\.(xyz|click|top)/.test(href)) {
+                    const val = href.includes('.top') ? c.email2 : c.email;
+                    a.setAttribute('href', 'mailto:' + val);
                     a.childNodes.forEach(n => {
                         if (n.nodeType === 3) {
-                            const nv = n.nodeValue.replace(/taxi@xedalatnhatrang\.xyz/g, c.email);
+                            const nv = n.nodeValue.replace(/taxi@xedalatnhatrang\.xyz|mail@xedalatnhatrang\.(?:click|top)/g, val);
                             if (nv !== n.nodeValue) n.nodeValue = nv;
                         }
                     });
@@ -1744,7 +1747,7 @@
                 el.childNodes.forEach(n => {
                     if (n.nodeType === 3) {
                         let t = n.nodeValue;
-                        t = t.replace(/taxi@xedalatnhatrang\.xyz/g, c.email);
+                        t = t.replace(/taxi@xedalatnhatrang\.xyz|mail@xedalatnhatrang\.(?:click|top)/g, c.email + ' · ' + c.email2);
                         t = t.replace('Nguyễn Trọng Tài', c.owner);
                         if (t !== n.nodeValue) n.nodeValue = t;
                     } else if (n.nodeType === 1 && !n.matches('script,style')) walk(n);
