@@ -1750,7 +1750,7 @@
                         t = t.replace(/taxi@xedalatnhatrang\.xyz|mail@xedalatnhatrang\.(?:click|top)/g, c.email + ' · ' + c.email2);
                         t = t.replace('Nguyễn Trọng Tài', c.owner);
                         if (t !== n.nodeValue) n.nodeValue = t;
-                    } else if (n.nodeType === 1 && !n.matches('script,style')) walk(n);
+                    } else if (n.nodeType === 1 && !n.matches('script,style,a')) walk(n);
                 });
             };
             walk(document.body);
