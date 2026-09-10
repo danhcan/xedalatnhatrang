@@ -258,6 +258,8 @@
             white-space: nowrap;
         }
         .header-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(245, 158, 11, .45); }
+        .header-cta.alt { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 6px 16px rgba(16, 185, 129, .35); }
+        .header-cta.alt:hover { box-shadow: 0 10px 22px rgba(16, 185, 129, .45); }
 
         .nav-toggle {
             display: none;
@@ -366,7 +368,7 @@
             display: block;
             font-size: 1.35em;
             font-weight: 800;
-        }hút
+        }
         .stat span {
             font-size: .78em;
             color: #94a3b8;
@@ -722,6 +724,19 @@
         }
         .floating-call:hover { transform: scale(1.08); }
         .floating-call.main { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
+        .floating-call.zalo-btn { background: #ffffff; border: 2px solid #e2e8f0; }
+        .floating-call.zalo-btn.sm { width: 48px; height: 48px; }
+        /* Logo Zalo (SVG chính thức) + icon Zalo nhỏ ngay sau số điện thoại */
+        .zalo-logo { display: inline-block; vertical-align: middle; fill: #0068ff; }
+        .zalo-logo.zalo-w { fill: #ffffff; }
+        .zalo-ico {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 38px; height: 38px; margin-left: 9px; border-radius: 10px;
+            background: #0068ff; cursor: pointer; vertical-align: middle; flex: 0 0 auto;
+            box-shadow: 0 2px 6px rgba(0,104,255,.45); user-select: none; transition: transform .15s ease;
+        }
+        .zalo-ico svg { width: 28px; height: 28px; fill: #ffffff; }
+        .zalo-ico:hover { transform: scale(1.15); }
         .floating-call.secondary { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); width: 48px; height: 48px; font-size: 1.15em; }
 
         .back-to-top {
@@ -748,9 +763,7 @@
 
         /* ===== WIDGET TRỢ LÝ AI (thiết kế mới – to, rõ, đồng bộ tông xanh + cam) ===== */
         .ai-fab {
-            position: fixed;
-            right: 18px;
-            bottom: 140px;
+            position: relative;
             width: 64px;
             height: 64px;
             border-radius: 50%;
@@ -789,9 +802,9 @@
         .ai-panel {
             position: fixed;
             right: 18px;
-            bottom: 216px;
+            bottom: 340px;
             width: min(440px, calc(100vw - 24px));
-            height: min(680px, calc(100dvh - 230px));
+            height: min(680px, calc(100dvh - 356px));
             background: #fff;
             border-radius: 24px;
             border: 1px solid var(--line);
@@ -967,8 +980,18 @@
         }
         .ai-input button:hover { transform: scale(1.08); }
         .ai-foot { text-align: center; font-size: .7em; color: #94a3b8; padding: 0 0 10px; background: #fff; }
+        .ai-call-btn.phone { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 6px 16px rgba(16, 185, 129, .35); width: 100%; justify-content: center; }
+        .ai-call-btn.zalo { background: linear-gradient(135deg, #0ea5e9, #0369a1); box-shadow: 0 6px 16px rgba(14, 165, 233, .35); width: 100%; justify-content: center; }
+        .ai-call-btn.web { width: 100%; justify-content: center; }
+        .ai-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 2px 0 6px 39px; }
+        .ai-chip {
+            border: 1.5px solid var(--line); background: #fff; color: #334155;
+            border-radius: 999px; padding: 8px 14px; font-size: .85em; font-weight: 600;
+            cursor: pointer; font-family: inherit; transition: all .2s ease;
+        }
+        .ai-chip:hover { border-color: var(--blue); color: var(--blue); background: #eff6ff; }
 
-        /* Form + nút gọi video gặp chủ xe */
+        /* Form + nút gọi điện (audio) gặp chủ xe */
         .ai-call-form { display: flex; gap: 6px; margin-top: 8px; }
         .ai-call-form input {
             flex: 1;
@@ -1014,8 +1037,8 @@
         .ai-call-btn:hover { transform: translateY(-1px); }
 
         @media (max-width: 480px) {
-            .ai-fab { bottom: 132px; width: 60px; height: 60px; font-size: 1.5em; }
-            .ai-panel { right: 8px; bottom: 204px; width: calc(100vw - 16px); height: min(620px, calc(100dvh - 224px)); }
+            .ai-fab { width: 56px; height: 56px; font-size: 1.4em; }
+            .ai-panel { right: 8px; bottom: 322px; width: calc(100vw - 16px); height: min(620px, calc(100dvh - 338px)); }
         }
 
         /* ===== ANIMATIONS ===== */
@@ -1051,6 +1074,7 @@
             .nav-list a { padding: 14px 16px; border-radius: 10px; }
             .nav-toggle { display: flex; align-items: center; justify-content: center; }
             .header-cta span.hide-sm { display: none; }
+            .header-cta.alt { display: none; } /* mobile đã có đủ 2 số ở nút nổi + khung đặt xe */
             .section { padding: 52px 0; }
             .price-grid, .service-grid { grid-template-columns: 1fr; }
             .vehicle-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -1128,6 +1152,7 @@
             </nav>
             <div style="display:flex; align-items:center; gap:10px;">
                 <a href="tel:0911099712" data-tel="main" class="header-cta" title="0911 099 712 (A.Huy)"><i class="fas fa-phone"></i><span>0911 099 712</span></a>
+                <a href="tel:0909126122" data-tel="sub" class="header-cta alt" title="0909 126 122 (Vy Tuong)"><i class="fas fa-phone-volume"></i><span>0909 126 122</span></a>
                 <button class="nav-toggle" id="navToggle" aria-label="Mở menu"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -1157,11 +1182,11 @@
                 <div class="hotline-row">
                     <a href="tel:0911099712" data-tel="main" class="hotline-btn main">
                         <i class="fas fa-phone-alt"></i>
-                        <span>0911 099 712<small>Hotline chính – A.Huy · Gọi là đi ngay</small></span>
+                        <span>0911 099 712<span class="zalo-ico" data-zalo="main" data-num="0911099712" title="Gọi / nhắn Zalo số này (miễn phí)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg></span><small>Hotline chính – A.Huy · Gọi là đi ngay</small></span>
                     </a>
                     <a href="tel:0909126122" data-tel="sub" class="hotline-btn sub-line">
                         <i class="fas fa-phone-volume"></i>
-                        <span>0909 126 122<small>Line phụ – Vy Tuong · Zalo hỗ trợ</small></span>
+                        <span>0909 126 122<span class="zalo-ico" data-zalo="sub" data-num="0909126122" title="Gọi / nhắn Zalo số này (miễn phí)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg></span><small>Line phụ – Vy Tuong · Gọi trực tiếp</small></span>
                     </a>
                 </div>
                 <div class="hero-card-note">
@@ -1574,9 +1599,17 @@
     </footer>
 
     <!-- Nút gọi nổi -->
+    <!-- Logo Zalo chính thức (SVG dùng chung cho cả trang) -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="ic-zalo" viewBox="0 0 24 24"><path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/></symbol></svg>
     <div class="floating-calls">
+        <button class="ai-fab" id="aiFab" aria-label="Mở trợ lý AI">
+            <i class="fas fa-robot"></i>
+            <span class="ai-dot"></span>
+        </button>
         <a href="tel:0911099712" data-tel="main" class="floating-call main" title="Gọi hotline chính – A.Huy (0911 099 712)" aria-label="Gọi hotline chính A.Huy"><i class="fas fa-phone"></i></a>
+        <a href="https://zalo.me/0911099712" data-zalo="main" target="_blank" rel="noopener" class="floating-call zalo-btn" title="Chat / Gọi Zalo – A.Huy (0911 099 712) – miễn phí" aria-label="Gọi Zalo A.Huy – tài khoản chính"><svg class="zalo-logo" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg></a>
         <a href="tel:0909126122" data-tel="sub" class="floating-call secondary" title="Gọi line phụ – Vy Tuong (0909 126 122)" aria-label="Gọi line phụ Vy Tuong"><i class="fas fa-phone-volume"></i></a>
+        <a href="https://zalo.me/0909126122" data-zalo="sub" target="_blank" rel="noopener" class="floating-call zalo-btn sm" title="Chat / Gọi Zalo – Vy Tuong (0909 126 122) – miễn phí" aria-label="Gọi Zalo Vy Tuong"><svg class="zalo-logo" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg></a>
     </div>
     <a href="#" class="back-to-top" id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang"><i class="fas fa-arrow-up"></i></a>
 
@@ -1653,11 +1686,7 @@
         }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
         document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
     </script>
-    <!-- Trợ lý AI -->
-    <button class="ai-fab" id="aiFab" aria-label="Mở trợ lý AI">
-        <i class="fas fa-robot"></i>
-        <span class="ai-dot"></span>
-    </button>
+    <!-- Trợ lý AI: nút robot nằm TRONG cụm floating-calls ở trên (vị trí đầu tiên) -->
     <div class="ai-panel" id="aiPanel" role="dialog" aria-label="Trợ lý AI">
         <div class="ai-head">
             <span class="ai-avatar"><i class="fas fa-robot"></i></span>
@@ -1684,7 +1713,7 @@
         };
 
         // Sau khi triển khai Worker: điền URL worker vào endpoint
-        const AI_CONFIG = { endpoint: 'https://chothuexe.danhlinux2026.workers.dev', model: 'gemini-3.1-flash-lite' };
+        const AI_CONFIG = { endpoint: 'https://chothuexe.danhlinux2026.workers.dev', model: '@cf/qwen/qwen3-30b-a3b-fp8' }; // model thực tế cấu hình trong Worker (biến AI_MODEL trong wrangler.toml)
 
         // Bảng giá chatbot trả lời offline (sửa cho khớp bảng giá hiển thị trên web)
         const PRICE_DATA = {
@@ -1727,6 +1756,13 @@
                     }
                 });
             });
+            // Zalo: <a data-zalo> cập nhật link; icon <span class="zalo-ico"> cập nhật số để bấm mở Zalo
+            document.querySelectorAll('[data-zalo]').forEach(el => {
+                const val = el.dataset.zalo === 'main' ? c.hotline : c.hotline2;
+                const url = 'https://zalo.me/' + telOf(val);
+                if (el.tagName === 'A') el.setAttribute('href', url);
+                else el.dataset.num = telOf(val);
+            });
             // Email trong link mailto (hỗ trợ 2 domain: .click và .top)
             document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
                 const href = a.getAttribute('href') || '';
@@ -1756,6 +1792,15 @@
         }
 
         applySiteConfig();
+
+        // Icon Zalo nhỏ sau số điện thoại – bấm để mở Zalo cho đúng số (không lồng <a> trong <a>)
+        document.addEventListener('click', function (e) {
+            const z = e.target.closest('.zalo-ico');
+            if (!z || !z.dataset.num) return;
+            e.preventDefault();
+            e.stopPropagation();
+            window.open('https://zalo.me/' + z.dataset.num, '_blank', 'noopener');
+        });
 
         const aiPanel = document.getElementById('aiPanel');
         const aiFab = document.getElementById('aiFab');
@@ -1795,12 +1840,49 @@
             aiMsgs.scrollTop = aiMsgs.scrollHeight;
             return row;
         }
+
+        // ===== NÚT HỎI NHANH (chips) – nội dung đổi được trong Dashboard /admin =====
+        let AI_CHIPS = ['💰 Xem bảng giá', '🚐 Các loại xe', '✅ Đặt xe như thế nào', '📞 Gọi chủ xe'];
+        let AI_GREETING = null; // lời chào từ Dashboard (nếu có)
+
+        // Lấy cấu hình động từ Dashboard (lời chào + chips)
+        (function syncPublicConfig() {
+            const ep = (AI_CONFIG.endpoint || '').replace(/\/$/, '');
+            if (!ep) return;
+            fetch(ep + '/public-config').then(r => r.ok ? r.json() : null).then(c => {
+                if (!c) return;
+                if (Array.isArray(c.chips) && c.chips.length) AI_CHIPS = c.chips;
+                if (c.greeting) AI_GREETING = c.greeting;
+                if (c.hotline) SITE_CONFIG.hotline = c.hotline;
+                if (c.hotline2) SITE_CONFIG.hotline2 = c.hotline2;
+                applySiteConfig(); // cập nhật lại số trên toàn trang theo Dashboard
+            }).catch(() => {});
+        })();
+        function aiRemoveChips() {
+            aiMsgs.querySelectorAll('.ai-chips').forEach(el => el.remove());
+        }
+        function aiShowChips() {
+            aiRemoveChips();
+            const wrap = document.createElement('div');
+            wrap.className = 'ai-chips';
+            AI_CHIPS.forEach(txt => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'ai-chip';
+                b.textContent = txt;
+                b.onclick = () => { aiRemoveChips(); aiAsk(txt); };
+                wrap.appendChild(b);
+            });
+            aiMsgs.appendChild(wrap);
+            aiMsgs.scrollTop = aiMsgs.scrollHeight;
+        }
         function aiToggle(open) {
             const isOpen = open === undefined ? !aiPanel.classList.contains('open') : open;
             aiPanel.classList.toggle('open', isOpen);
             if (isOpen) {
                 aiFab.style.display = 'none';
-                if (!aiMsgs.children.length) aiAddMsg(FAQ_DATA.default, 'bot');
+                if (!aiMsgs.children.length) aiAddMsg(AI_GREETING || FAQ_DATA.default, 'bot');
+                aiShowChips();
                 setTimeout(() => aiInput.focus(), 200);
             } else {
                 aiFab.style.display = '';
@@ -1840,35 +1922,104 @@
             return null;
         }
 
-        // ===== GỌI VIDEO GẶP CHỦ XE =====
-        const VIDEO_KEYWORDS = /(gap chu xe|goi video|video call|gap rieng|xac nhan truc tiep|noi chuyen truc tiep|gap ban quan ly|chu xe|hoi cau kho|hien truong|xem xe|giam doc|quan ly|chu dau tu|gap ong chu|gap ba chu|gap anh chu|gap chi chu|gap nguoi phu trach)/;
-        function aiVideoForm() {
+        // ===== GỌI ĐIỆN (AUDIO) GẶP CHỦ XE =====
+        const CALL_KEYWORDS = /(gap chu xe|goi chu xe|goi dien|goi thoai|goi video|video call|gap rieng|xac nhan truc tiep|noi chuyen truc tiep|gap ban quan ly|chu xe|hoi cau kho|hien truong|xem xe|giam doc|quan ly|chu dau tu|gap ong chu|gap ba chu|gap anh chu|gap chi chu|gap nguoi phu trach)/;
+        function aiAudioForm() {
             const row = document.createElement('div');
             row.className = 'row bot';
             row.appendChild(aiAvatar());
             const wrap = document.createElement('div');
             wrap.className = 'bubble';
-            wrap.innerHTML =
-                '📹 OK, mình kết nối bạn với chủ xe qua video (miễn phí)!\n' +
-                'Bạn nhập số điện thoại rồi bấm "Gặp ngay" nhé:';
+            wrap.innerHTML = '📞 Chọn cách nói chuyện với chủ xe (miễn phí):';
+            const ep = (AI_CONFIG.endpoint || '').replace(/\/$/, '');
+
+            // Gọi trực tiếp – LUÔN có cả 2 số (chính + phụ)
+            const aTel = document.createElement('a');
+            aTel.href = 'tel:' + SITE_CONFIG.hotline.replace(/[^0-9]/g, '');
+            aTel.className = 'ai-call-btn phone';
+            aTel.innerHTML = '<i class="fas fa-phone-volume"></i> Gọi ' + SITE_CONFIG.hotline + ' · A.Huy (nhanh nhất)';
+            wrap.appendChild(aTel);
+            const aTel2 = document.createElement('a');
+            aTel2.href = 'tel:' + SITE_CONFIG.hotline2.replace(/[^0-9]/g, '');
+            aTel2.className = 'ai-call-btn phone';
+            aTel2.innerHTML = '<i class="fas fa-phone"></i> Gọi ' + SITE_CONFIG.hotline2 + ' · Vy Tuong (line phụ)';
+            wrap.appendChild(aTel2);
+
+            // Zalo – cả 2 tài khoản (miễn phí qua internet)
+            const aZalo = document.createElement('a');
+            aZalo.href = 'https://zalo.me/' + SITE_CONFIG.hotline.replace(/[^0-9]/g, '');
+            aZalo.target = '_blank';
+            aZalo.rel = 'noopener';
+            aZalo.className = 'ai-call-btn zalo';
+            aZalo.innerHTML = '<svg class="zalo-logo zalo-w" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg> Zalo A.Huy · ' + SITE_CONFIG.hotline;
+            wrap.appendChild(aZalo);
+            const aZalo2 = document.createElement('a');
+            aZalo2.href = 'https://zalo.me/' + SITE_CONFIG.hotline2.replace(/[^0-9]/g, '');
+            aZalo2.target = '_blank';
+            aZalo2.rel = 'noopener';
+            aZalo2.className = 'ai-call-btn zalo';
+            aZalo2.innerHTML = '<svg class="zalo-logo zalo-w" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#ic-zalo"/></svg> Zalo Vy Tuong · ' + SITE_CONFIG.hotline2;
+            wrap.appendChild(aZalo2);
+
+            // Cách 3: gọi qua mạng (phòng audio Jitsi) – chủ xe nhận báo Telegram
+            const aWeb = document.createElement('a');
+            aWeb.href = '#';
+            aWeb.className = 'ai-call-btn web';
+            aWeb.innerHTML = '<i class="fas fa-headphones"></i> Gọi qua mạng – vào phòng chờ ngay';
+            wrap.appendChild(aWeb);
+
+            const or = document.createElement('div');
+            or.className = 'ai-call-hint';
+            or.style.textAlign = 'center';
+            or.textContent = '— hoặc để lại SĐT, chủ xe gọi lại cho bạn —';
+            wrap.appendChild(or);
             const form = document.createElement('div');
             form.className = 'ai-call-form';
             const input = document.createElement('input');
             input.type = 'tel';
-            input.placeholder = 'Số điện thoại của bạn';
+            input.placeholder = 'SĐT của bạn';
             input.maxLength = 15;
             const btn = document.createElement('button');
-            btn.textContent = '📹 Gặp ngay';
+            btn.textContent = '📞 Gọi lại cho tôi';
             form.appendChild(input);
             form.appendChild(btn);
             wrap.appendChild(form);
             const hint = document.createElement('div');
             hint.className = 'ai-call-hint';
-            hint.textContent = 'Chủ xe nhận thông báo ngay và vào phòng gặp bạn trong ~1 phút.';
+            hint.textContent = 'Chủ xe nhận báo ngay và gọi lại cho bạn trong ~1 phút (miễn phí).';
             wrap.appendChild(hint);
             row.appendChild(wrap);
             aiMsgs.appendChild(row);
             aiMsgs.scrollTop = aiMsgs.scrollHeight;
+            // Nút "Gọi qua mạng": tạo phòng audio, báo Telegram cho chủ xe, khách chờ trong phòng
+            aWeb.onclick = async (ev) => {
+                ev.preventDefault();
+                aWeb.removeAttribute('href');
+                aWeb.style.opacity = '.7';
+                aWeb.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang tạo phòng…';
+                try {
+                    const res = await fetch(ep + '/audio-call', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ mode: 'now', note: 'Khách gọi qua mạng từ web' })
+                    });
+                    const data = await res.json();
+                    if (!res.ok || !data.roomUrl) throw new Error(data.error || 'Lỗi kết nối');
+                    aWeb.className = 'ai-call-btn';
+                    aWeb.href = data.roomUrl;
+                    aWeb.target = '_blank';
+                    aWeb.rel = 'noopener';
+                    aWeb.style.opacity = '';
+                    aWeb.innerHTML = '<i class="fas fa-headphones"></i> 🎙️ Vào phòng nghe (đang chờ chủ xe)';
+                    hint.textContent = '✅ Chủ xe đã nhận báo! Nhớ bấm "Cho phép" dùng micro. Nếu ~2 phút chưa ai vào, gọi ' + SITE_CONFIG.hotline + ' nhé.';
+                } catch (e) {
+                    aWeb.style.opacity = '';
+                    aWeb.href = '#';
+                    aWeb.innerHTML = '<i class="fas fa-headphones"></i> Gọi qua mạng – vào phòng chờ ngay';
+                    hint.textContent = '⚠️ Không tạo được phòng. Bạn gọi ' + SITE_CONFIG.hotline + ' nhé!';
+                }
+            };
+
             btn.onclick = async () => {
                 const phone = input.value.trim();
                 if (!/^0\d{9,10}$/.test(phone.replace(/\s/g, ''))) {
@@ -1878,33 +2029,38 @@
                 btn.disabled = true;
                 btn.textContent = 'Đang kết nối…';
                 try {
-                    const res = await fetch((AI_CONFIG.endpoint || '') + (AI_CONFIG.endpoint.endsWith('/') ? '' : '/') + 'video-call', {
+                    const res = await fetch((AI_CONFIG.endpoint || '').replace(/\/$/, '') + '/audio-call', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ phone, note: 'Khách từ chatbot web' })
+                        body: JSON.stringify({ phone, note: 'Khách để số từ chatbot web' })
                     });
                     const data = await res.json();
-                    if (!res.ok || !data.roomUrl) throw new Error(data.error || 'Lỗi kết nối');
+                    if (!res.ok) throw new Error(data.error || 'Lỗi kết nối');
                     const row2 = document.createElement('div');
                     row2.className = 'row bot';
                     row2.appendChild(aiAvatar());
                     const bub2 = document.createElement('div');
                     bub2.className = 'bubble';
-                    bub2.textContent = '✅ ' + (data.message || 'Đã tạo phòng.') + '\nNếu chủ xe chưa vào, bạn bấm nút dưới đây để vào phòng trước:';
-                    const a = document.createElement('a');
-                    a.href = data.roomUrl;
-                    a.target = '_blank';
-                    a.rel = 'noopener';
-                    a.className = 'ai-call-btn';
-                    a.innerHTML = '<i class="fas fa-video"></i> Vào phòng video ngay';
-                    bub2.appendChild(a);
+                    bub2.textContent = '✅ ' + (data.message || 'Đã gửi yêu cầu! Chủ xe sẽ gọi lại cho bạn trong ~1 phút.') + '\nNếu gấp, bạn gọi ' + SITE_CONFIG.hotline + ' luôn nhé:';
+                    const a2 = document.createElement('a');
+                    a2.href = 'tel:' + SITE_CONFIG.hotline.replace(/[^0-9]/g, '');
+                    a2.className = 'ai-call-btn phone';
+                    a2.innerHTML = '<i class="fas fa-phone"></i> Gọi ' + SITE_CONFIG.hotline;
+                    bub2.appendChild(a2);
+                    const a3 = document.createElement('a');
+                    a3.href = data.roomUrl;
+                    a3.target = '_blank';
+                    a3.rel = 'noopener';
+                    a3.className = 'ai-call-btn web';
+                    a3.innerHTML = '<i class="fas fa-headphones"></i> Hoặc vào phòng nghe luôn';
+                    bub2.appendChild(a3);
                     row2.appendChild(bub2);
                     aiMsgs.appendChild(row2);
                     aiMsgs.scrollTop = aiMsgs.scrollHeight;
                 } catch (e) {
                     btn.disabled = false;
                     btn.textContent = '📹 Gặp ngay';
-                    hint.textContent = '⚠️ Không kết nối được. Bạn gọi 0911099712 (A.Huy) nhé!';
+                    hint.textContent = '⚠️ Không gửi được. Bạn gọi ' + SITE_CONFIG.hotline + ' (A.Huy) nhé!';
                 }
             };
         }
@@ -1913,15 +2069,16 @@
             if (!t) return;
             aiInput.value = '';
             aiAddMsg(t, 'user');
-            // Khách muốn gặp chủ xe / câu khó → mở form gọi video
-            if (VIDEO_KEYWORDS.test(normalize(t))) {
-                setTimeout(() => aiVideoForm(), 500);
+            // Khách muốn gặp/gọi chủ xe → mở menu gọi điện (audio)
+            if (CALL_KEYWORDS.test(normalize(t))) {
+                setTimeout(() => aiAudioForm(), 500);
                 return;
             }
             const typing = aiShowTyping();
             const reply = (data) => {
                 typing.remove();
                 aiAddMsg(data, 'bot');
+                aiShowChips();
             };
             if (AI_CONFIG.endpoint) {
                 aiHistory.push({ role: 'user', content: t });
