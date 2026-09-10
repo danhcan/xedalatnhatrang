@@ -1,0 +1,8 @@
+# robots.txt – Thuê Xe Đà Lạt Nha Trang
+# Cho phép mọi trình thu thập dữ liệu (Googlebot, bingbot…)
+User-agent: *
+Allow: /
+
+# Chỉ định domain chính (canonical) để Google không coi là trùng lặp
+# Cả xedalatnhatrang.top và xedalatnhatrang.click đều dùng chung trang này
+Sitemap: https://xedalatnhatrang.click/sitemap.xml
