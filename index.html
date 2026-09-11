@@ -832,9 +832,9 @@
         .ai-panel {
             position: fixed;
             right: 18px;
-            bottom: 340px;
-            width: min(440px, calc(100vw - 24px));
-            height: min(680px, calc(100dvh - 356px));
+            bottom: 96px;
+            width: min(560px, calc(100vw - 24px));
+            height: min(780px, calc(100dvh - 112px));
             background: #fff;
             border-radius: 24px;
             border: 1px solid var(--line);
@@ -1068,7 +1068,7 @@
 
         @media (max-width: 480px) {
             .ai-fab { width: 56px; height: 56px; font-size: 1.4em; }
-            .ai-panel { right: 8px; bottom: 322px; width: calc(100vw - 16px); height: min(620px, calc(100dvh - 338px)); }
+            .ai-panel { right: 8px; bottom: 84px; width: calc(100vw - 16px); height: min(700px, calc(100dvh - 100px)); }
         }
 
         /* ===== ANIMATIONS ===== */
@@ -1966,7 +1966,7 @@
                 if (/(san bay|cam ranh|airport)/.test(q)) return FAQ_DATA.price('nha trang san bay') + (khuHoi ? kq : '');
                 if (/(mui ne)/.test(q)) return FAQ_DATA.price('mui ne da lat') + (khuHoi ? kq : '');
                 if (/(sai gon|sg)/.test(q)) {
-                    return '🚗 Tuyến Sài Gòn:\n• SG ⇄ Đà Lạt: 5 chỗ 2.700k | 7 chỗ 3.000k | 16 chỗ 5.000k\n• SG ⇄ Nha Trang: 5 chỗ 2.700k | 7 chỗ 3.000k | 16 chỗ 5.000k' + (khuHoi ? kq : '') + '\n\n📞 Gọi ' + SITE_CONFIG.hotline + ' để giữ xe!';
+                    return '🚗 Tuyến Sài Gòn:\n\n• SG ⇄ Đà Lạt:\n– 5 chỗ: 2.700k\n– 7 chỗ: 3.000k\n– 16 chỗ: 5.000k\n\n• SG ⇄ Nha Trang:\n– 5 chỗ: 2.700k\n– 7 chỗ: 3.000k\n– 16 chỗ: 5.000k' + (khuHoi ? kq : '') + '\n\n📞 Gọi ' + SITE_CONFIG.hotline + ' để giữ xe!';
                 }
                 if (/(san may|tour may)/.test(q)) return FAQ_DATA.price('san may');
                 if (/(thue theo ngay|thue 1 ngay|trong ngay|thue ngay|mot ngay)/.test(q)) return FAQ_DATA.price('thue xe trong ngay');
