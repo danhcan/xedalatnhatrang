@@ -9,6 +9,12 @@
     <meta name="author" content="Hộ Kinh Doanh Nguyễn Trọng Tài">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Thuê Xe">
     <meta name="geo.region" content="VN-LAM">
     <meta name="geo.placename" content="Nha Trang, Khánh Hòa">
 
@@ -737,6 +743,31 @@
         .zalo-ico svg { width: 28px; height: 28px; fill: #ffffff; }
         .zalo-ico:hover { transform: scale(1.15); }
         .floating-call.wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+
+        /* Nút Cài App (PWA) */
+        .install-pill {
+            position: fixed; left: 18px; bottom: 76px; z-index: 998;
+            display: none; align-items: center; gap: 9px;
+            background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+            color: #fff; font-weight: 800; font-size: .95em;
+            padding: 12px 20px; border-radius: 999px; border: none; cursor: pointer;
+            box-shadow: 0 8px 22px rgba(245, 158, 11, .45); transition: transform .2s ease;
+        }
+        .install-pill.show { display: inline-flex; }
+        .install-pill:hover { transform: translateY(-2px) scale(1.03); }
+        .install-modal {
+            position: fixed; inset: 0; z-index: 1200; display: none;
+            align-items: flex-end; justify-content: center;
+            background: rgba(15, 23, 42, .55); backdrop-filter: blur(3px);
+        }
+        .install-modal.show { display: flex; }
+        .install-box {
+            background: #fff; border-radius: 22px 22px 0 0;
+            max-width: 430px; width: calc(100% - 24px);
+            padding: 26px 24px 30px; animation: aiPanelIn .3s ease;
+        }
+        .install-box h4 { font-size: 1.12rem; margin: 0 0 12px; color: #0f172a; }
+        .install-box ol { margin: 0 0 16px 20px; color: #334155; line-height: 1.8; font-size: .95rem; }
 
         .back-to-top {
             position: fixed;
@@ -1580,9 +1611,62 @@
         <a href="tel:0909126122" data-tel="main" class="floating-call main" title="Gọi hotline chính – Vy Tuong (0909 126 122)" aria-label="Gọi hotline chính Vy Tuong"><i class="fas fa-phone"></i></a>
         <a href="https://wa.me/84909126122" data-wa="main" target="_blank" rel="noopener" class="floating-call wa" title="Nhắn WhatsApp – Vy Tuong (0909 126 122)" aria-label="Nhắn WhatsApp Vy Tuong"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
+
+    <!-- Nút Cài App (PWA) -->
+    <button class="install-pill" id="installPill" aria-label="Cài đặt app Thuê Xe lên điện thoại"><i class="fas fa-mobile-screen"></i> Cài App</button>
+    <div class="install-modal" id="installModal" role="dialog" aria-label="Hướng dẫn cài app lên iPhone">
+        <div class="install-box">
+            <h4>📱 Cài app "Thuê Xe" lên iPhone</h4>
+            <ol>
+                <li>Mở trang này bằng trình duyệt <strong>Safari</strong></li>
+                <li>Bấm nút <strong>Chia sẻ</strong> (ô vuông có mũi tên hướng lên)</li>
+                <li>Kéo xuống chọn <strong>"Thêm vào Màn hình chính"</strong></li>
+                <li>Bấm <strong>Thêm</strong> – xong! App nằm ngay trên màn hình chính 🎉</li>
+            </ol>
+            <button class="install-close" id="installClose" type="button">Đã hiểu, đóng lại</button>
+        </div>
+    </div>
     <a href="#" class="back-to-top" id="backToTop" title="Lên đầu trang" aria-label="Lên đầu trang"><i class="fas fa-arrow-up"></i></a>
 
     <script>
+        // ===== Cài App (PWA) =====
+        (function () {
+            const pill = document.getElementById('installPill');
+            const modal = document.getElementById('installModal');
+            const closeBtn = document.getElementById('installClose');
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            let deferred = null;
+
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js').catch(function () {});
+            }
+            closeBtn.addEventListener('click', function () { modal.classList.remove('show'); });
+            modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('show'); });
+
+            if (isStandalone) return; // đã cài app rồi → ẩn nút
+
+            window.addEventListener('beforeinstallprompt', function (e) {
+                e.preventDefault();
+                deferred = e;
+                pill.classList.add('show');
+            });
+            // iPhone/Safari không có beforeinstallprompt → hiện nút mở hướng dẫn
+            if (isIOS) pill.classList.add('show');
+
+            pill.addEventListener('click', function () {
+                if (deferred) {
+                    deferred.prompt();
+                    deferred.userChoice.then(function () {
+                        deferred = null;
+                        pill.classList.remove('show');
+                    });
+                } else if (isIOS) {
+                    modal.classList.add('show');
+                }
+            });
+        })();
+
         // Mobile menu
         const navToggle = document.getElementById('navToggle');
         const navList = document.getElementById('navList');

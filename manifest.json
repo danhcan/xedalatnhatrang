@@ -1,0 +1,26 @@
+{
+  "name": "Thuê Xe Đà Lạt Nha Trang – Đón sau 5 phút",
+  "short_name": "Thuê Xe",
+  "description": "Đặt xe Nha Trang – Đà Lạt – Cam Ranh – Sài Gòn – Mũi Né. Xe đời mới 4-29 chỗ, gọi là có xe sau 5 phút, phục vụ 24/24.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "lang": "vi",
+  "categories": ["travel", "navigation"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Gọi hotline 0909 126 122",
+      "short_name": "Gọi ngay",
+      "url": "./?action=call"
+    }
+  ]
+}
